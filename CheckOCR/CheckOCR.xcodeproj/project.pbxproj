@@ -26,7 +26,6 @@
 		84CC724B1A22091D0007E07E /* libtesseract_wordrec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D2ACFC1A1FED5900AFEAFE /* libtesseract_wordrec.a */; };
 		84CC724C1A22091D0007E07E /* libtesseract.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D2ACEC1A1FED5900AFEAFE /* libtesseract.a */; };
 		84CC72501A2213D90007E07E /* CheckOCR.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84CC724D1A220B500007E07E /* CheckOCR.h */; };
-		84CC72511A2215790007E07E /* CheckOCR.h in Sources */ = {isa = PBXBuildFile; fileRef = 84CC724D1A220B500007E07E /* CheckOCR.h */; };
 		84CC72521A22178A0007E07E /* CheckAPI.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84CC724E1A220EDC0007E07E /* CheckAPI.h */; };
 		84CC72531A2218320007E07E /* CheckImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84D2AD1B1A1FFB7800AFEAFE /* CheckImage.h */; };
 		84CC72541A2218320007E07E /* CheckResult.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84D2AD1E1A1FFB9F00AFEAFE /* CheckResult.h */; };
@@ -353,7 +352,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84CC72511A2215790007E07E /* CheckOCR.h in Sources */,
 				84D2AD1F1A1FFB9F00AFEAFE /* CheckResult.cpp in Sources */,
 				84D2AD1C1A1FFB7800AFEAFE /* CheckImage.cpp in Sources */,
 				84D2AD111A1FED8300AFEAFE /* CheckAPI.cpp in Sources */,

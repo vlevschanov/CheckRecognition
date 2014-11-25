@@ -1,25 +1,23 @@
 //
-//  SecondViewController.swift
+//  BaseViewController.swift
 //  CheckRecognition
 //
-//  Created by Viktor Levshchanov on 22.11.14.
+//  Created by Admin on 25.11.14.
 //  Copyright (c) 2014 Viktor Levshchanov. All rights reserved.
 //
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-

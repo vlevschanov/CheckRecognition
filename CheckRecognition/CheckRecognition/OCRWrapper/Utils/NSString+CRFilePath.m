@@ -2,7 +2,7 @@
 //  NSString+CRFilePath.m
 //  CheckRecognition
 //
-//  Created by Admin on 24.11.14.
+//  Created by Viktor Levshchanovon 24.11.14.
 //  Copyright (c) 2014 Viktor Levshchanov. All rights reserved.
 //
 
