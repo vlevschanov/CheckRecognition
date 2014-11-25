@@ -10,11 +10,15 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var textView: UITextView!
+    
     var image : UIImage?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        Logger.logI("")
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +33,8 @@ class FirstViewController: UIViewController {
         picker.sourceType = .PhotoLibrary
         
         self.presentViewController(picker, animated: false, completion: nil)
+        
+        
     }
 }
 
@@ -37,7 +43,8 @@ extension FirstViewController: UIImagePickerControllerDelegate, UINavigationCont
         picker.dismissViewControllerAnimated(true, completion: nil)
         image = info[UIImagePickerControllerOriginalImage] as? UIImage
         CRCheckAPI.sharedAPI().processImage(image, withCallback: { (result :String!, error :NSError!, success :Bool) -> Void in
-            println(result);
+            self.textView.text = result;
+            Logger.logI("\(result)")
         });
     }
 }

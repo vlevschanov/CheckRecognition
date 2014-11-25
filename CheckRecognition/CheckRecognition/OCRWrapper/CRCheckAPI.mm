@@ -12,6 +12,8 @@
 #import "NSString+CRFilePath.h"
 #import "UIImage+CRCheckImage.h"
 
+#import "Logger.h"
+
 static CRCheckAPI*_sharedInstance = nil;
 static NSString * const kCRDataPath = @"tessdata";
 
@@ -31,6 +33,9 @@ static NSString * const kCRDataPath = @"tessdata";
     dispatch_once(&onceToken, ^{
         [self setupEnvironment];
         _sharedInstance = [CRCheckAPI new];
+#if DEBUG
+        DLog(@"");
+#endif
     });
     return _sharedInstance;
 }
@@ -55,59 +60,19 @@ static NSString * const kCRDataPath = @"tessdata";
         _ocrImage = [image CR_CheckImage];
         CheckOCR::CheckResult *result = _ocrAPI->recognize(_ocrImage);
         
-        NSLog(@"%s", result->GetResult());
-        self.callback([NSString stringWithUTF8String:result->GetResult()], nil, YES);
+        NSString *resultString = [NSString stringWithUTF8String:result->GetResult()];
+        DLog(@"%@", resultString);
+        
+        delete _ocrImage;
+        delete result;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.callback(resultString, nil, YES);
+        });
     });
 }
 
 + (void)setupEnvironment {
-//    NSFileManager *fm = [NSFileManager defaultManager];
-//    NSString *documentsPath = [kCRDataPath CR_pathAtDocumentDirectory];
-//    
-//    if (![fm fileExistsAtPath:documentsPath]) {
-//        [fm createDirectoryAtPath:documentsPath withIntermediateDirectories:YES attributes:nil error:NULL];
-//    }
-//    
-//    NSString *bundleDataPath = [kCRDataPath CR_bundleResourcePath];
-//    
-//    NSLog(@"%@ -> %@", bundleDataPath, documentsPath);
-//    
-//    NSError *error = nil;
-//    
-//    if(![fm fileExistsAtPath:bundleDataPath]) {
-//        [fm copyItemAtPath:documentsPath toPath:bundleDataPath error:&error];
-//        
-//        if(error) {
-//            NSLog(@"%@", error);
-//        }
-//    }
-//    
-//    NSArray *fList = [fm contentsOfDirectoryAtPath:bundleDataPath error:&error];
-//    if(!error) {
-//        for(NSString *s in fList) {
-//            NSString *newFilePath = [documentsPath stringByAppendingPathComponent:s];
-//            NSString *oldFilePath = [bundleDataPath stringByAppendingPathComponent:s];
-//            
-//            if (![fm fileExistsAtPath:newFilePath]) {
-//                NSLog(@"copying: %@", oldFilePath);
-//                [fm copyItemAtPath:oldFilePath toPath:newFilePath error:&error];
-//                if(!error) {
-//                    NSLog(@"success");
-//                }
-//                else {
-//                    NSLog(@"%@", error);
-//                }
-//            }
-//            else {
-//                NSLog(@"already exists: %@", newFilePath);
-//            }
-//        }
-//    }
-//    else {
-//        NSLog(@"%@", error);
-//    }
-//    
-//    setenv("TESSDATA_PREFIX", [[[NSString CR_documentsDirectoryPath] stringByAppendingString:@"/"] UTF8String], 1);
     NSString *datapath = [NSString stringWithFormat:@"%@/", [NSString stringWithString:[[NSBundle mainBundle] bundlePath]]];
     setenv("TESSDATA_PREFIX", datapath.UTF8String, 1);
 }

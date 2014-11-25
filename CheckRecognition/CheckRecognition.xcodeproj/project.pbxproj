@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8437AD571A23C087002FD899 /* NSString+CRFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437AD561A23C087002FD899 /* NSString+CRFilePath.m */; };
-		8437AD5A1A23C635002FD899 /* UIImage+CRCheckImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8437AD591A23C635002FD899 /* UIImage+CRCheckImage.mm */; };
+		575970B61A24C2850071D14F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575970B51A24C2850071D14F /* Logger.swift */; };
+		575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 575970C51A24E9030071D14F /* CRCheckAPI.mm */; };
+		575970CB1A24E9030071D14F /* NSString+CRFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 575970C71A24E9030071D14F /* NSString+CRFilePath.m */; };
+		575970CC1A24E9030071D14F /* UIImage+CRCheckImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 575970C91A24E9030071D14F /* UIImage+CRCheckImage.mm */; };
 		8437AD5C1A23DB9A002FD899 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8437AD5B1A23DB9A002FD899 /* tessdata */; };
 		8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D1DD1A20E5DE00487D58 /* AppDelegate.swift */; };
 		8446D1E01A20E5DE00487D58 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D1DF1A20E5DE00487D58 /* FirstViewController.swift */; };
@@ -19,7 +21,6 @@
 		8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D2001A20E65600487D58 /* CameraCapture.swift */; };
 		844F3ED51A20EA2C001428AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844F3ED41A20EA2C001428AD /* AVFoundation.framework */; };
 		84CC71D61A21ECDC0007E07E /* libCheckOCR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DD8E751A215B9500C9CEC0 /* libCheckOCR.a */; };
-		84DD8E7C1A215D8600C9CEC0 /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84DD8E7B1A215D8600C9CEC0 /* CRCheckAPI.mm */; };
 		84E037701A2150FC00090C43 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0376F1A2150FC00090C43 /* CameraView.swift */; };
 		84E037721A21512600090C43 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E037711A21512600090C43 /* CameraView.xib */; };
 /* End PBXBuildFile section */
@@ -42,10 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8437AD551A23C087002FD899 /* NSString+CRFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CRFilePath.h"; sourceTree = "<group>"; };
-		8437AD561A23C087002FD899 /* NSString+CRFilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CRFilePath.m"; sourceTree = "<group>"; };
-		8437AD581A23C635002FD899 /* UIImage+CRCheckImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRCheckImage.h"; sourceTree = "<group>"; };
-		8437AD591A23C635002FD899 /* UIImage+CRCheckImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+CRCheckImage.mm"; sourceTree = "<group>"; };
+		575970B51A24C2850071D14F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		575970C41A24E9030071D14F /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
+		575970C51A24E9030071D14F /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
+		575970C61A24E9030071D14F /* NSString+CRFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CRFilePath.h"; sourceTree = "<group>"; };
+		575970C71A24E9030071D14F /* NSString+CRFilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CRFilePath.m"; sourceTree = "<group>"; };
+		575970C81A24E9030071D14F /* UIImage+CRCheckImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRCheckImage.h"; sourceTree = "<group>"; };
+		575970C91A24E9030071D14F /* UIImage+CRCheckImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+CRCheckImage.mm"; sourceTree = "<group>"; };
+		575970CD1A24E9670071D14F /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		8437AD5B1A23DB9A002FD899 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		8446D1D81A20E5DE00487D58 /* CheckRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446D1DC1A20E5DE00487D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,8 +64,6 @@
 		844F3ED41A20EA2C001428AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84DD8E6F1A215B9500C9CEC0 /* CheckOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CheckOCR.xcodeproj; path = ../CheckOCR/CheckOCR.xcodeproj; sourceTree = "<group>"; };
 		84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckRecognition-Bridging-Header.h"; sourceTree = "<group>"; };
-		84DD8E7A1A215D8600C9CEC0 /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
-		84DD8E7B1A215D8600C9CEC0 /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
 		84E0376F1A2150FC00090C43 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		84E037711A21512600090C43 /* CameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,12 +81,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		575970B41A24C2590071D14F /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				575970CD1A24E9670071D14F /* Logger.h */,
+				575970B51A24C2850071D14F /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		575970C31A24E9030071D14F /* OCRWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				575970C41A24E9030071D14F /* CRCheckAPI.h */,
+				575970C51A24E9030071D14F /* CRCheckAPI.mm */,
+				575970C61A24E9030071D14F /* NSString+CRFilePath.h */,
+				575970C71A24E9030071D14F /* NSString+CRFilePath.m */,
+				575970C81A24E9030071D14F /* UIImage+CRCheckImage.h */,
+				575970C91A24E9030071D14F /* UIImage+CRCheckImage.mm */,
+			);
+			path = OCRWrapper;
+			sourceTree = "<group>";
+		};
 		8446D1CF1A20E5DD00487D58 = {
 			isa = PBXGroup;
 			children = (
 				84DD8E6F1A215B9500C9CEC0 /* CheckOCR.xcodeproj */,
-				844F3ED61A20EA3B001428AD /* Frameworks */,
 				8446D1DA1A20E5DE00487D58 /* CheckRecognition */,
+				844F3ED61A20EA3B001428AD /* Frameworks */,
 				8446D1D91A20E5DE00487D58 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */,
-				84DD8E781A215D1700C9CEC0 /* OCRWrapper */,
+				575970C31A24E9030071D14F /* OCRWrapper */,
+				575970B41A24C2590071D14F /* Logger */,
 				8446D1FF1A20E63300487D58 /* Camera */,
 				8446D1DD1A20E5DE00487D58 /* AppDelegate.swift */,
 				8446D1DF1A20E5DE00487D58 /* FirstViewController.swift */,
@@ -146,19 +172,6 @@
 				84DD8E751A215B9500C9CEC0 /* libCheckOCR.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		84DD8E781A215D1700C9CEC0 /* OCRWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				84DD8E7A1A215D8600C9CEC0 /* CRCheckAPI.h */,
-				84DD8E7B1A215D8600C9CEC0 /* CRCheckAPI.mm */,
-				8437AD551A23C087002FD899 /* NSString+CRFilePath.h */,
-				8437AD561A23C087002FD899 /* NSString+CRFilePath.m */,
-				8437AD581A23C635002FD899 /* UIImage+CRCheckImage.h */,
-				8437AD591A23C635002FD899 /* UIImage+CRCheckImage.mm */,
-			);
-			path = OCRWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,14 +263,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84DD8E7C1A215D8600C9CEC0 /* CRCheckAPI.mm in Sources */,
 				8446D1E21A20E5DE00487D58 /* SecondViewController.swift in Sources */,
+				575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */,
 				8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */,
-				8437AD5A1A23C635002FD899 /* UIImage+CRCheckImage.mm in Sources */,
+				575970CC1A24E9030071D14F /* UIImage+CRCheckImage.mm in Sources */,
+				575970B61A24C2850071D14F /* Logger.swift in Sources */,
+				575970CB1A24E9030071D14F /* NSString+CRFilePath.m in Sources */,
 				8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */,
 				84E037701A2150FC00090C43 /* CameraView.swift in Sources */,
 				8446D1E01A20E5DE00487D58 /* FirstViewController.swift in Sources */,
-				8437AD571A23C087002FD899 /* NSString+CRFilePath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +387,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +410,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				GCC_USE_STANDARD_INCLUDE_SEARCHING = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
