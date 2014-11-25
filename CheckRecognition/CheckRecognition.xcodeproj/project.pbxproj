@@ -26,6 +26,7 @@
 		84FA05041A2521AB002BD5B5 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA05001A2521AB002BD5B5 /* ScanViewController.swift */; };
 		84FA05051A2521AB002BD5B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA05021A2521AB002BD5B5 /* SettingsViewController.swift */; };
 		84FA05081A252411002BD5B5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA05071A252411002BD5B5 /* TabBarController.swift */; };
+		84FA050D1A25280A002BD5B5 /* CRRecognitionOperation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84FA050C1A25280A002BD5B5 /* CRRecognitionOperation.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,7 @@
 		575970B51A24C2850071D14F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		575970C41A24E9030071D14F /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
 		575970C51A24E9030071D14F /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
-		575970CD1A24E9670071D14F /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		575970CD1A24E9670071D14F /* CRLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRLogger.h; sourceTree = "<group>"; };
 		8437AD5B1A23DB9A002FD899 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		8446D1D81A20E5DE00487D58 /* CheckRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446D1DC1A20E5DE00487D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +73,8 @@
 		84FA05001A2521AB002BD5B5 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		84FA05021A2521AB002BD5B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84FA05071A252411002BD5B5 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		84FA050B1A25280A002BD5B5 /* CRRecognitionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRecognitionOperation.h; sourceTree = "<group>"; };
+		84FA050C1A25280A002BD5B5 /* CRRecognitionOperation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRRecognitionOperation.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +93,7 @@
 		575970B41A24C2590071D14F /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				575970CD1A24E9670071D14F /* Logger.h */,
+				575970CD1A24E9670071D14F /* CRLogger.h */,
 				575970B51A24C2850071D14F /* Logger.swift */,
 			);
 			path = Logger;
@@ -102,6 +105,8 @@
 				84FA04ED1A251EE0002BD5B5 /* Utils */,
 				575970C41A24E9030071D14F /* CRCheckAPI.h */,
 				575970C51A24E9030071D14F /* CRCheckAPI.mm */,
+				84FA050B1A25280A002BD5B5 /* CRRecognitionOperation.h */,
+				84FA050C1A25280A002BD5B5 /* CRRecognitionOperation.mm */,
 			);
 			path = OCRWrapper;
 			sourceTree = "<group>";
@@ -115,6 +120,7 @@
 				8446D1D91A20E5DE00487D58 /* Products */,
 			);
 			sourceTree = "<group>";
+			wrapsLines = 0;
 		};
 		8446D1D91A20E5DE00487D58 /* Products */ = {
 			isa = PBXGroup;
@@ -365,6 +371,7 @@
 				84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */,
 				84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */,
 				84FA05041A2521AB002BD5B5 /* ScanViewController.swift in Sources */,
+				84FA050D1A25280A002BD5B5 /* CRRecognitionOperation.mm in Sources */,
 				575970B61A24C2850071D14F /* Logger.swift in Sources */,
 				8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */,
 				84FA04F31A251EF3002BD5B5 /* UIImage+CRCheckImage.mm in Sources */,

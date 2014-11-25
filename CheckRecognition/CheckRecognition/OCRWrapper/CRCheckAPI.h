@@ -15,6 +15,7 @@ typedef void (^OCRRecognitionCallback)(NSString *text, NSError *error, BOOL succ
 
 + (instancetype)sharedAPI;
 
-- (void)processImage:(UIImage *)image withCallback:(OCRRecognitionCallback)callback;
+- (void)recognizeImage:(UIImage *)image withCallback:(OCRRecognitionCallback)callback;
+- (void)cancelCurrentRecognition;
 
 @end

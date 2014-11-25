@@ -7,35 +7,39 @@
 //
 
 #import "CRCheckAPI.h"
-#include <CheckOCR/CheckOCR.h>
 
+#import "CRRecognitionOperation.h"
 #import "NSString+CRFilePath.h"
 #import "UIImage+CRCheckImage.h"
 
-#import "Logger.h"
+#import "CRLogger.h"
 
 static CRCheckAPI*_sharedInstance = nil;
 static NSString * const kCRDataPath = @"tessdata";
 
-@interface CRCheckAPI () {
-    CheckOCR::CheckAPI *_ocrAPI;
-    CheckOCR::CheckImage *_ocrImage;
-}
+@interface CRCheckAPI ()
 
+@property (nonatomic) NSOperationQueue *recognitionQueue;
+@property (nonatomic) CRRecognitionOperation *currentOperation;
 @property (nonatomic, copy) OCRRecognitionCallback callback;
 
 @end
 
 @implementation CRCheckAPI
 
++ (void)setupEnvironment {
+    NSString *datapath = [NSString stringWithFormat:@"%@/", [NSString stringWithString:[[NSBundle mainBundle] bundlePath]]];
+    setenv("TESSDATA_PREFIX", datapath.UTF8String, 1);
+}
+
++ (void)initialize {
+    [self setupEnvironment];
+}
+
 + (instancetype)sharedAPI {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self setupEnvironment];
         _sharedInstance = [CRCheckAPI new];
-#if DEBUG
-        DLog(@"");
-#endif
     });
     return _sharedInstance;
 }
@@ -43,38 +47,42 @@ static NSString * const kCRDataPath = @"tessdata";
 - (instancetype)init {
     NSAssert(_sharedInstance == nil, @"Only one instance of OCRAPI is allowed");
     if(self = [super init]) {
-        _ocrAPI = new CheckOCR::CheckAPI();
-        BOOL result = _ocrAPI->init(kCRDataPath.UTF8String, @"eng".UTF8String);
-        NSAssert(result, @"Couldn't initialize OCR API");
-        if(!result) {
-            return nil;
-        }
+        _recognitionQueue = [[NSOperationQueue alloc] init];
+        _recognitionQueue.maxConcurrentOperationCount = 1;
     }
     return self;
 }
 
-- (void)processImage:(UIImage *)image withCallback:(OCRRecognitionCallback)callback {
-    NSParameterAssert(image && callback);
-    self.callback = callback;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        _ocrImage = [image CR_CheckImage];
-        CheckOCR::CheckResult *result = _ocrAPI->recognize(_ocrImage);
-        
-        NSString *resultString = [NSString stringWithUTF8String:result->GetResult()];
-        DLog(@"%@", resultString);
-        
-        delete _ocrImage;
-        delete result;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.callback(resultString, nil, YES);
-        });
-    });
+- (void)setCurrentOperation:(CRRecognitionOperation *)currentOperation {
+    _currentOperation.completionBlock = nil;
+    _currentOperation = currentOperation;
+    if(_currentOperation) {
+        __weak CRCheckAPI *weak = self;
+        _currentOperation.completionBlock = ^{
+            [weak performSelectorOnMainThread:@selector(didFinishRecognition) withObject:nil waitUntilDone:NO];
+        };
+    }
 }
 
-+ (void)setupEnvironment {
-    NSString *datapath = [NSString stringWithFormat:@"%@/", [NSString stringWithString:[[NSBundle mainBundle] bundlePath]]];
-    setenv("TESSDATA_PREFIX", datapath.UTF8String, 1);
+- (void)recognizeImage:(UIImage *)image withCallback:(OCRRecognitionCallback)callback {
+    NSParameterAssert(image && callback);
+    self.callback = callback;
+    
+    self.currentOperation = [[CRRecognitionOperation alloc] initWithImage:image dataPath:kCRDataPath andLanguage:@"eng"];
+    [self.recognitionQueue addOperation:self.currentOperation];
+}
+
+- (void)cancelCurrentRecognition {
+    [self.currentOperation cancel];
+    self.currentOperation = nil;
+}
+
+- (void)didFinishRecognition {
+    if(self.callback) {
+        self.callback(self.currentOperation.result, nil, YES);
+        self.callback = nil;
+        self.currentOperation = nil;
+    }
 }
 
 @end

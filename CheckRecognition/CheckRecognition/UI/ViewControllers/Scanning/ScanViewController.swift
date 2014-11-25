@@ -33,8 +33,6 @@ class ScanViewController: BaseViewController {
             picker.sourceType = .PhotoLibrary
             
             self.presentViewController(picker, animated: false, completion: nil)
-            
-            
         }
     }
     
@@ -42,7 +40,7 @@ class ScanViewController: BaseViewController {
         func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
             picker.dismissViewControllerAnimated(true, completion: nil)
             image = info[UIImagePickerControllerOriginalImage] as? UIImage
-            CRCheckAPI.sharedAPI().processImage(image, withCallback: { (result :String!, error :NSError!, success :Bool) -> Void in
+            CRCheckAPI.sharedAPI().recognizeImage(image, withCallback: { (result :String!, error :NSError!, success :Bool) -> Void in
                 self.textView.text = result;
                 Logger.logI("\(result)")
             });
