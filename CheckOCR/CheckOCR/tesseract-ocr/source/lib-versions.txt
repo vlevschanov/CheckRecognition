@@ -1,0 +1,2 @@
+tesseract current version: 3.02.02(https://code.google.com/p/tesseract-ocr/downloads)
+leptonic current version: 1.71 (http://www.leptonica.com/download.html)
