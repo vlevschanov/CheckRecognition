@@ -11,14 +11,24 @@ import UIKit
 @objc
 class Logger {
 
-    private enum LogLevel {
+    private enum Level {
         case Info
         case Debug
         case Warning
         case Error
     }
     
-    private class func logLevelName(level: LogLevel) -> String {
+    struct Static {
+        static let dateFormatter = Logger.initFormatter()
+    }
+    
+    private class func initFormatter() -> NSDateFormatter {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss.sss"
+        return formatter
+    }
+    
+    private class func logLevelName(level: Level) -> String {
         switch(level) {
         case .Info:
             return "INFO"
@@ -31,11 +41,11 @@ class Logger {
         }
     }
     
-    private class func releaseLogLevel() -> LogLevel {
+    private class func releaseLogLevel() -> Level {
         return .Error;
     }
     
-    private class func logLevelAllowed(level: LogLevel) -> Bool {
+    private class func logLevelAllowed(level: Level) -> Bool {
         #if DEBUG
             return true
         #else
@@ -43,9 +53,29 @@ class Logger {
         #endif
     }
    
-    private class func log(level: LogLevel, message: String, file: String, function: String, line: Int) {
-        println("\(logLevelName(level)): \(file.lastPathComponent): \(function)[\(line)]: \(message)")
+    private class func log<T>(level: Level, message: T, file: String, function: String, line: Int) {
+        println("\(Static.dateFormatter.stringFromDate(NSDate())): \(logLevelName(level)): \(file.lastPathComponent): \(function)[\(line)]: \(message)")
     }
+    
+    // MARK: - Swift Log methods
+    
+    class func debug<T>(message: T, file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__) {
+        log(.Debug, message: message, file: file, function: function, line: line);
+    }
+    
+    class func info<T>(message: T, file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__) {
+        log(.Info, message: message, file: file, function: function, line: line);
+    }
+    
+    class func warning<T>(message: T, file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__) {
+        log(.Warning, message: message, file: file, function: function, line: line);
+    }
+    
+    class func error<T>(message: T, file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__)  {
+        log(.Error, message: message, file: file, function: function, line: line);
+    }
+    
+    // MARK: - Obj-C Log methods
     
     class func logD(message: String, file: String = __FILE__, function: String = __FUNCTION__, line: Int = __LINE__) {
         log(.Debug, message: message, file: file, function: function, line: line);
