@@ -2,7 +2,7 @@
 //  TabBarController.swift
 //  CheckRecognition
 //
-//  Created by Admin on 25.11.14.
+//  Created by Viktor Levshchanov on 25.11.14.
 //  Copyright (c) 2014 Viktor Levshchanov. All rights reserved.
 //
 

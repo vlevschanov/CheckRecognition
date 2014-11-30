@@ -2,47 +2,60 @@
 //  ScanViewController.swift
 //  CheckRecognition
 //
-//  Created by Viktor Levshchanovon 25.11.14.
+//  Created by Viktor Levshchanov 25.11.14.
 //  Copyright (c) 2014 Viktor Levshchanov. All rights reserved.
 //
 
 import UIKit
 
+private extension BaseViewController.SegueID {
+    static let PREVIEW_SEGUE = "previewSegue"
+}
+
 class ScanViewController: BaseViewController {
-        
-        @IBOutlet weak var textView: UITextView!
-        
-        var image : UIImage?
-        
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            // Do any additional setup after loading the view, typically from a nib.
-            Logger.logI("")
-        }
-        
-        override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
-        
-        
-        @IBAction func didTapButton(sender: UIButton) {
-            let picker : UIImagePickerController = UIImagePickerController()
-            picker.delegate = self
-            picker.sourceType = .PhotoLibrary
-            
-            self.presentViewController(picker, animated: false, completion: nil)
+    
+    @IBOutlet weak var cameraView: CameraView!
+    
+    var scanImage : UIImage?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cameraView.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        switch segue.identifier! {
+        case SegueID.PREVIEW_SEGUE:
+            let vc = segue.destinationViewController as PreviewViewController
+            vc.photoImage = scanImage
+        default:
+            break
         }
     }
     
-    extension ScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-            picker.dismissViewControllerAnimated(true, completion: nil)
-            image = info[UIImagePickerControllerOriginalImage] as? UIImage
-            CRCheckAPI.sharedAPI().recognizeImage(image, withCallback: { (result :String!, error :NSError!, success :Bool) -> Void in
-                self.textView.text = result;
-                Logger.logI("\(result)")
-            });
+    //MARK: - Actions
+    
+}
+
+extension ScanViewController : CameraViewDelegate {
+    func cameraView(view: CameraView, didCapture image: UIImage?, error: NSError?) {
+        scanImage = image
+        if scanImage != nil {
+            performSegueWithIdentifier(SegueID.PREVIEW_SEGUE, sender: self)
         }
+    }
+}
+
+extension ScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        scanImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if scanImage != nil {
+            performSegueWithIdentifier(SegueID.PREVIEW_SEGUE, sender: self)
+        }
+    }
 }

@@ -7,14 +7,63 @@
 //
 
 import UIKit
+import AVFoundation
 
-class CameraView: UIView {
+protocol CameraViewDelegate {
+    func cameraView(view: CameraView, didCapture image: UIImage?, error: NSError?)
+}
+
+class CameraView: MemoryObservableView {
     
-    let camera : CameraCapture
-
-    required init(coder aDecoder: NSCoder) {
-        camera = CameraCapture()!
-        super.init(coder: aDecoder)
+    @IBOutlet weak var cameraView: UIView!
+    
+    @IBInspectable var autoStart : Bool = false
+    
+    var delegate : CameraViewDelegate?
+    
+    private let camera = CameraCapture(sessionPresset: AVCaptureSessionPresetHigh)?
+    
+    private var capturedImage : UIImage?
+    
+    //MARK: - Override
+    
+    override func didReceiveMemoryWarning() {
+        capturedImage = nil
     }
     
+    override func didMoveToSuperview() {
+        if (self.superview == nil) {
+            camera?.stop()
+        }
+        else if autoStart {
+            camera?.start(onLayer: cameraView.layer, moveToBack: true)
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        camera?.updatePreview(cameraView.bounds)
+    }
+    
+    //MARK: - Public
+    
+    func start() {
+        camera?.start(onLayer: cameraView.layer, moveToBack: true)
+    }
+    
+    func stop() {
+        camera?.stop()
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func cameraButtonDidTap(sender: UIButton) {
+        if (camera?.isRunning != nil) {
+            camera?.capturePhoto({ (capturedImage: UIImage?, error: NSError?) -> () in
+                if let delegate = self.delegate {
+                    delegate.cameraView(self, didCapture: capturedImage, error: error)
+                }
+            })
+        }
+    }
 }

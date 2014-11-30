@@ -11,12 +11,16 @@ import AVFoundation
 
 class CameraCapture {
     
-    let captureSession = AVCaptureSession()
-    let captureOutput  = AVCaptureStillImageOutput()
+    var isRunning : Bool {
+        return captureSession.running
+    }
     
-    var captureDevice  : AVCaptureDevice?
-    var sessionPresset : String?
-    var previewLayer   : AVCaptureVideoPreviewLayer?
+    private let captureSession = AVCaptureSession()
+    private let captureOutput  = AVCaptureStillImageOutput()
+    
+    private var captureDevice  : AVCaptureDevice?
+    private var sessionPresset : String?
+    private var previewLayer   : AVCaptureVideoPreviewLayer?
     
     init?(sessionPresset: String, cameraPosition: AVCaptureDevicePosition) {
         
@@ -45,11 +49,14 @@ class CameraCapture {
         self.init(sessionPresset: AVCaptureSessionPreset640x480, cameraPosition: .Back)
     }
     
+    convenience init?(sessionPresset: String) {
+        self.init(sessionPresset: sessionPresset, cameraPosition: .Back)
+    }
+    
     //MARK: - Private
     
     private func configSession() -> Bool {
         captureSession.beginConfiguration()
-        
         var error : NSError? = nil
         let captureInput : AVCaptureDeviceInput = AVCaptureDeviceInput(device: captureDevice, error: &error)
         
@@ -86,14 +93,21 @@ class CameraCapture {
     
     //MARK: - Public
     
-    func start(onLayer layer: CALayer) {
+    func start(onLayer layer: CALayer, moveToBack: Bool = false) {
         if captureSession.running {
             self.stop()
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        layer.addSublayer(previewLayer)
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
         previewLayer?.frame = layer.bounds
+        
+        if(moveToBack) {
+            layer.insertSublayer(previewLayer, atIndex: 0)
+        }
+        else {
+            layer.addSublayer(previewLayer)
+        }
         
         captureSession.startRunning()
     }
@@ -105,11 +119,23 @@ class CameraCapture {
         }
     }
     
-    func pause() {
-        
+    func updatePreview(bounds: CGRect) {
+        if captureSession.running {
+            previewLayer?.frame = bounds
+        }
     }
     
-    func resume() {
+    func capturePhoto(handler: (capturedImage: UIImage?, error: NSError?) -> ()) {
+        if captureOutput.capturingStillImage {
+            Logger.debug("camera is already capturing still image")
+            handler(capturedImage: nil, error: nil)
+            return
+        }
         
+        captureOutput.captureStillImageAsynchronouslyFromConnection(captureOutput.connections[0] as AVCaptureConnection, completionHandler: { (buffer: CMSampleBuffer!, error: NSError!) -> Void in
+            let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
+            let image = UIImage(data: data)
+            handler(capturedImage: image, error: error)
+        })
     }
 }
