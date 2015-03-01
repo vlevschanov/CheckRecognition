@@ -25,17 +25,17 @@ class CameraCapture {
     init?(sessionPresset: String, cameraPosition: AVCaptureDevicePosition) {
         
         let devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo);
-        for device in devices {
-            let captureDevice = device as AVCaptureDevice
-            if captureDevice.position == cameraPosition {
-                self.captureDevice = captureDevice
+        for device in devices as [AVCaptureDevice] {
+            if device.position == cameraPosition {
+                self.captureDevice = device
+                break;
             }
         }
         if(self.captureDevice == nil) {
             self.captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        }
-        if(self.captureDevice == nil) {
-            return nil
+            if(self.captureDevice == nil) {
+                return nil
+            }
         }
         
         self.sessionPresset = sessionPresset
@@ -69,6 +69,7 @@ class CameraCapture {
         }
         
         if captureSession.canAddOutput(captureOutput) {
+            captureOutput.outputSettings = [AVVideoCodecKey : AVVideoCodecJPEG]
             captureSession.addOutput(captureOutput)
         }
         else {
@@ -99,8 +100,9 @@ class CameraCapture {
         }
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
         previewLayer?.frame = layer.bounds
+        previewLayer?.position = CGPointMake(CGRectGetMidX(layer.bounds), CGRectGetMidY(layer.bounds))
         
         if(moveToBack) {
             layer.insertSublayer(previewLayer, atIndex: 0)

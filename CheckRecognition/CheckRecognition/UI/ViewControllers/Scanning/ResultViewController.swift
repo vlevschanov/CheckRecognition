@@ -14,7 +14,7 @@ class ResultViewController: BaseViewController {
     
     var text : String? {
         didSet {
-            if (text?.isEmpty != nil) {
+            if text? == nil || text!.isEmpty {
                 text = "No results"
             }
         }

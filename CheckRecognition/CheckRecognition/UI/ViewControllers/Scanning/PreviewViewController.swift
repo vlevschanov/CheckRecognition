@@ -45,7 +45,7 @@ class PreviewViewController: BaseViewController {
         CRCheckAPI.sharedAPI().recognizeImage(photoImage!, withCallback: { [weak self] (text: String!, error: NSError!, succes: Bool) -> Void in
             if let strong = self {
                 strong.loadingIndicator.hidden = true
-                strong.recognizedText = text
+                strong.recognizedText = text!
                 strong.performSegueWithIdentifier(SegueID.RESULT_SEGUE, sender: strong)
             }
         })

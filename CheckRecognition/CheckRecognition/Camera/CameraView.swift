@@ -33,10 +33,10 @@ class CameraView: MemoryObservableView {
     
     override func didMoveToSuperview() {
         if (self.superview == nil) {
-            camera?.stop()
+            stop();
         }
         else if autoStart {
-            camera?.start(onLayer: cameraView.layer, moveToBack: true)
+            start();
         }
     }
     
@@ -48,11 +48,21 @@ class CameraView: MemoryObservableView {
     //MARK: - Public
     
     func start() {
-        camera?.start(onLayer: cameraView.layer, moveToBack: true)
+        if let cam = self.camera {
+            if(cam.isRunning) {
+                return;
+            }
+            cam.start(onLayer: cameraView.layer, moveToBack: true)
+        }
     }
     
     func stop() {
-        camera?.stop()
+        if let cam = self.camera {
+            if(!cam.isRunning) {
+                return;
+            }
+            cam.stop()
+        }
     }
     
     //MARK: - Actions

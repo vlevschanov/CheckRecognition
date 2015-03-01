@@ -24,7 +24,15 @@ class ScanViewController: BaseViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        cameraView.start()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        cameraView.stop()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -39,6 +47,11 @@ class ScanViewController: BaseViewController {
     
     //MARK: - Actions
     
+    @IBAction func didTapGalleryButton(sender: UIBarButtonItem) {
+        var picker = UIImagePickerController();
+        picker.delegate = self
+        self.presentViewController(picker, animated: true, completion: nil)
+    }
 }
 
 extension ScanViewController : CameraViewDelegate {
