@@ -68,7 +68,7 @@ static NSString * const kCRDataPath = @"tessdata";
     NSParameterAssert(image && callback);
     self.callback = callback;
     
-    self.currentOperation = [[CRRecognitionOperation alloc] initWithImage:image dataPath:kCRDataPath andLanguage:@"eng"];
+    self.currentOperation = [[CRRecognitionOperation alloc] initWithImage:image dataPath:kCRDataPath andLanguage:@"eng+ukr+rus"];
     [self.recognitionQueue addOperation:self.currentOperation];
 }
 

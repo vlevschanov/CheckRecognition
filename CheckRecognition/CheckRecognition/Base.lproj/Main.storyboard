@@ -21,18 +21,26 @@
                                 <rect key="frame" x="282" y="282" width="37" height="37"/>
                             </activityIndicatorView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zG2-Bl-f3g">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zG2-Bl-f3g" firstAttribute="top" secondItem="5xz-XC-1vV" secondAttribute="bottom" id="56Z-8D-2IP"/>
                             <constraint firstAttribute="trailing" secondItem="zG2-Bl-f3g" secondAttribute="trailing" id="6lH-UH-ipE"/>
                             <constraint firstAttribute="centerY" secondItem="cZp-am-4XE" secondAttribute="centerY" id="FLj-2K-Fym"/>
                             <constraint firstAttribute="centerX" secondItem="cZp-am-4XE" secondAttribute="centerX" id="L6Y-Ji-KMb"/>
+                            <constraint firstItem="dp6-MH-WXS" firstAttribute="top" secondItem="zG2-Bl-f3g" secondAttribute="bottom" id="L8l-4L-3aD"/>
                             <constraint firstItem="zG2-Bl-f3g" firstAttribute="top" secondItem="sA0-RJ-wIQ" secondAttribute="top" id="agu-Dh-PG7"/>
                             <constraint firstAttribute="bottom" secondItem="zG2-Bl-f3g" secondAttribute="bottom" id="vPd-TI-a7l"/>
                             <constraint firstItem="zG2-Bl-f3g" firstAttribute="leading" secondItem="sA0-RJ-wIQ" secondAttribute="leading" id="vlw-1S-nfm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="agu-Dh-PG7"/>
+                                <exclude reference="vPd-TI-a7l"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Preview" id="qqX-zB-mo6">
                         <barButtonItem key="rightBarButtonItem" title="Scan" id="eZk-yt-aze">
