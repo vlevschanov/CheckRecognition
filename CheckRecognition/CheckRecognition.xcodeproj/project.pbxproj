@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5751BCA51AA46A7A0091A8D7 /* MemoryObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5751BCA41AA46A7A0091A8D7 /* MemoryObservableView.swift */; };
+		5751BCA91AA46CB10091A8D7 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5751BCA71AA46CB10091A8D7 /* CameraView.swift */; };
+		5751BCAA1AA46CB10091A8D7 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751BCA81AA46CB10091A8D7 /* CameraView.xib */; };
+		5751BCAD1AA46D330091A8D7 /* ImageFormattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5751BCAC1AA46D330091A8D7 /* ImageFormattingView.swift */; };
+		5751BCAF1AA46D7A0091A8D7 /* ImageFormattingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */; };
 		575970B61A24C2850071D14F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575970B51A24C2850071D14F /* Logger.swift */; };
 		575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 575970C51A24E9030071D14F /* CRCheckAPI.mm */; };
 		8437AD5C1A23DB9A002FD899 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8437AD5B1A23DB9A002FD899 /* tessdata */; };
@@ -17,12 +22,9 @@
 		8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D2001A20E65600487D58 /* CameraCapture.swift */; };
 		844F3ED51A20EA2C001428AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844F3ED41A20EA2C001428AD /* AVFoundation.framework */; };
 		84CC71D61A21ECDC0007E07E /* libCheckOCR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DD8E751A215B9500C9CEC0 /* libCheckOCR.a */; };
-		84CFCFAF1A2A99D9002DB34A /* MemoryObservableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFAE1A2A99D9002DB34A /* MemoryObservableView.swift */; };
 		84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */; };
 		84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB21A2B4012002DB34A /* ResultViewController.swift */; };
 		84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D177511A2A4D73002F275A /* NibDesignableView.swift */; };
-		84E037701A2150FC00090C43 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0376F1A2150FC00090C43 /* CameraView.swift */; };
-		84E037721A21512600090C43 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E037711A21512600090C43 /* CameraView.xib */; };
 		84FA04F21A251EF3002BD5B5 /* NSString+CRFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04EF1A251EF3002BD5B5 /* NSString+CRFilePath.m */; };
 		84FA04F31A251EF3002BD5B5 /* UIImage+CRCheckImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04F11A251EF3002BD5B5 /* UIImage+CRCheckImage.mm */; };
 		84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04FB1A25202A002BD5B5 /* BaseViewController.swift */; };
@@ -51,6 +53,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5751BCA41AA46A7A0091A8D7 /* MemoryObservableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryObservableView.swift; sourceTree = "<group>"; };
+		5751BCA71AA46CB10091A8D7 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		5751BCA81AA46CB10091A8D7 /* CameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
+		5751BCAC1AA46D330091A8D7 /* ImageFormattingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFormattingView.swift; sourceTree = "<group>"; };
+		5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFormattingView.xib; sourceTree = "<group>"; };
 		575970B51A24C2850071D14F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		575970C41A24E9030071D14F /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
 		575970C51A24E9030071D14F /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
@@ -64,14 +71,11 @@
 		8446D1E91A20E5DE00487D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8446D2001A20E65600487D58 /* CameraCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCapture.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		844F3ED41A20EA2C001428AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		84CFCFAE1A2A99D9002DB34A /* MemoryObservableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoryObservableView.swift; sourceTree = "<group>"; };
 		84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		84CFCFB21A2B4012002DB34A /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		84D177511A2A4D73002F275A /* NibDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignableView.swift; sourceTree = "<group>"; };
 		84DD8E6F1A215B9500C9CEC0 /* CheckOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CheckOCR.xcodeproj; path = ../CheckOCR/CheckOCR.xcodeproj; sourceTree = "<group>"; };
 		84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckRecognition-Bridging-Header.h"; sourceTree = "<group>"; };
-		84E0376F1A2150FC00090C43 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		84E037711A21512600090C43 /* CameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 		84FA04EE1A251EF3002BD5B5 /* NSString+CRFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CRFilePath.h"; sourceTree = "<group>"; };
 		84FA04EF1A251EF3002BD5B5 /* NSString+CRFilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CRFilePath.m"; sourceTree = "<group>"; };
 		84FA04F01A251EF3002BD5B5 /* UIImage+CRCheckImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRCheckImage.h"; sourceTree = "<group>"; };
@@ -98,6 +102,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5751BCA31AA46A7A0091A8D7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5751BCA41AA46A7A0091A8D7 /* MemoryObservableView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5751BCA61AA46CB10091A8D7 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				5751BCA71AA46CB10091A8D7 /* CameraView.swift */,
+				5751BCA81AA46CB10091A8D7 /* CameraView.xib */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		5751BCAB1AA46D1A0091A8D7 /* ImageFormattingView */ = {
+			isa = PBXGroup;
+			children = (
+				5751BCAC1AA46D330091A8D7 /* ImageFormattingView.swift */,
+				5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */,
+			);
+			path = ImageFormattingView;
+			sourceTree = "<group>";
+		};
 		575970B41A24C2590071D14F /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,8 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				8446D2001A20E65600487D58 /* CameraCapture.swift */,
-				84E0376F1A2150FC00090C43 /* CameraView.swift */,
-				84E037711A21512600090C43 /* CameraView.xib */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -188,7 +216,9 @@
 		84CFCFAD1A2A9989002DB34A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				84CFCFAE1A2A99D9002DB34A /* MemoryObservableView.swift */,
+				5751BCA31AA46A7A0091A8D7 /* Base */,
+				5751BCA61AA46CB10091A8D7 /* CameraView */,
+				5751BCAB1AA46D1A0091A8D7 /* ImageFormattingView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,10 +418,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8446D1E51A20E5DE00487D58 /* Main.storyboard in Resources */,
+				5751BCAF1AA46D7A0091A8D7 /* ImageFormattingView.xib in Resources */,
 				8446D1EA1A20E5DE00487D58 /* LaunchScreen.xib in Resources */,
 				8437AD5C1A23DB9A002FD899 /* tessdata in Resources */,
+				5751BCAA1AA46CB10091A8D7 /* CameraView.xib in Resources */,
 				8446D1E71A20E5DE00487D58 /* Images.xcassets in Resources */,
-				84E037721A21512600090C43 /* CameraView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,20 +436,21 @@
 				575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */,
 				8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */,
 				84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */,
+				5751BCA91AA46CB10091A8D7 /* CameraView.swift in Sources */,
 				84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */,
 				84FA05041A2521AB002BD5B5 /* ScanViewController.swift in Sources */,
 				84FA050D1A25280A002BD5B5 /* CRRecognitionOperation.mm in Sources */,
 				575970B61A24C2850071D14F /* Logger.swift in Sources */,
 				84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */,
 				84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */,
+				5751BCA51AA46A7A0091A8D7 /* MemoryObservableView.swift in Sources */,
+				5751BCAD1AA46D330091A8D7 /* ImageFormattingView.swift in Sources */,
 				8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */,
 				84FA04F31A251EF3002BD5B5 /* UIImage+CRCheckImage.mm in Sources */,
 				84FA05051A2521AB002BD5B5 /* SettingsViewController.swift in Sources */,
 				84FA05081A252411002BD5B5 /* TabBarController.swift in Sources */,
 				84FA04F21A251EF3002BD5B5 /* NSString+CRFilePath.m in Sources */,
-				84CFCFAF1A2A99D9002DB34A /* MemoryObservableView.swift in Sources */,
 				84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */,
-				84E037701A2150FC00090C43 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

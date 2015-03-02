@@ -15,7 +15,7 @@ protocol CameraViewDelegate {
 
 class CameraView: MemoryObservableView {
     
-    @IBOutlet weak var cameraView: UIView!
+    @IBOutlet private weak var cameraView: UIView!
     
     @IBInspectable var autoStart : Bool = false
     

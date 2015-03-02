@@ -14,8 +14,8 @@ private extension BaseViewController.SegueID {
 
 class PreviewViewController: BaseViewController {
 
-    @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var photoImageFormattingView: ImageFormattingView!
     
     var photoImage : UIImage?
     var recognizedText : String?
@@ -23,11 +23,17 @@ class PreviewViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        photoImageView.image = photoImage
+        
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        photoImageFormattingView.image = photoImage
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

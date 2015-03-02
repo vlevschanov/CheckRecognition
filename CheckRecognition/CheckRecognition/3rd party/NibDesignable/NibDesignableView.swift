@@ -47,6 +47,8 @@ public class NibDesignableView: UIView {
         var view = self.loadNib()
         view.frame = self.bounds
         view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+        view.autoresizesSubviews = true
+        view.translatesAutoresizingMaskIntoConstraints()
         self.addSubview(view)
     }
 

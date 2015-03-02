@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageFormattingView" customModule="CheckRecognition" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="EL0-Mj-ehK" id="Dk4-U8-xsj"/>
+                <outlet property="scrollContent" destination="n4h-q7-twG" id="tC9-XC-fW8"/>
+                <outlet property="scrollContentLeading" destination="Tti-ac-KaS" id="1cV-XX-uiJ"/>
+                <outlet property="scrollContentTop" destination="3O6-5F-bqV" id="pID-3P-3qE"/>
+                <outlet property="scrollView" destination="kgx-7o-fdG" id="l4y-eP-fC3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="cSE-EI-MvJ">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgx-7o-fdG">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4h-q7-twG">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EL0-Mj-ehK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                </imageView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="EL0-Mj-ehK" secondAttribute="bottom" id="F1R-Wl-vJS"/>
+                                <constraint firstAttribute="trailing" secondItem="EL0-Mj-ehK" secondAttribute="trailing" id="JKP-Kq-pVW"/>
+                                <constraint firstItem="EL0-Mj-ehK" firstAttribute="top" secondItem="n4h-q7-twG" secondAttribute="top" id="Wgp-eD-GbV"/>
+                                <constraint firstItem="EL0-Mj-ehK" firstAttribute="leading" secondItem="n4h-q7-twG" secondAttribute="leading" id="lyK-6j-605"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="n4h-q7-twG" firstAttribute="top" secondItem="kgx-7o-fdG" secondAttribute="top" id="3O6-5F-bqV"/>
+                        <constraint firstItem="n4h-q7-twG" firstAttribute="leading" secondItem="kgx-7o-fdG" secondAttribute="leading" id="Tti-ac-KaS"/>
+                        <constraint firstAttribute="centerX" secondItem="n4h-q7-twG" secondAttribute="centerX" placeholder="YES" id="V1q-uh-XCW"/>
+                        <constraint firstAttribute="bottom" secondItem="n4h-q7-twG" secondAttribute="bottom" id="dFI-gU-Clb"/>
+                        <constraint firstAttribute="centerY" secondItem="n4h-q7-twG" secondAttribute="centerY" placeholder="YES" id="hP7-6d-a4s"/>
+                        <constraint firstAttribute="trailing" secondItem="n4h-q7-twG" secondAttribute="trailing" id="sk6-b6-xdh"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="lt2-OS-AOF"/>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kgx-7o-fdG" secondAttribute="trailing" id="38I-1Z-tEJ"/>
+                <constraint firstAttribute="bottom" secondItem="kgx-7o-fdG" secondAttribute="bottom" id="Cst-Qo-9a6"/>
+                <constraint firstItem="kgx-7o-fdG" firstAttribute="top" secondItem="cSE-EI-MvJ" secondAttribute="top" id="Tsl-C7-0FO"/>
+                <constraint firstItem="kgx-7o-fdG" firstAttribute="leading" secondItem="cSE-EI-MvJ" secondAttribute="leading" id="e2S-l6-iDS"/>
+            </constraints>
+            <point key="canvasLocation" x="899" y="489"/>
+        </view>
+    </objects>
+</document>

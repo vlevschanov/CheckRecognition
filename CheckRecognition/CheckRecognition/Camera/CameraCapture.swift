@@ -99,8 +99,11 @@ class CameraCapture {
             self.stop()
         }
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
+        if previewLayer? == nil {
+            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
+        }
+        
         previewLayer?.frame = layer.bounds
         previewLayer?.position = CGPointMake(CGRectGetMidX(layer.bounds), CGRectGetMidY(layer.bounds))
         
