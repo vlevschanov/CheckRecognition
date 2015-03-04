@@ -32,28 +32,34 @@ class PreviewViewController: BaseViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        var loaded = self.isLoaded
         super.viewDidAppear(animated)
-        photoImageFormattingView.image = photoImage
+        
+        if !loaded {
+            photoImageFormattingView.image = photoImage
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case SegueID.RESULT_SEGUE:
             let vc = segue.destinationViewController as ResultViewController
-            vc.text = recognizedText
+            //vc.text = recognizedText
+            vc.image = photoImageFormattingView.getFormattedImage()
         default:
             break
         }
     }
     
     @IBAction func scanButtonDidTap(sender: UIBarButtonItem) {
-        loadingIndicator.hidden = false
-        CRCheckAPI.sharedAPI().recognizeImage(photoImage!, withCallback: { [weak self] (text: String!, error: NSError!, succes: Bool) -> Void in
-            if let strong = self {
-                strong.loadingIndicator.hidden = true
-                strong.recognizedText = text!
-                strong.performSegueWithIdentifier(SegueID.RESULT_SEGUE, sender: strong)
-            }
-        })
+        performSegueWithIdentifier(SegueID.RESULT_SEGUE, sender: self)
+//        loadingIndicator.hidden = false
+//        CRCheckAPI.sharedAPI().recognizeImage(photoImage!, withCallback: { [weak self] (text: String!, error: NSError!, succes: Bool) -> Void in
+//            if let strong = self {
+//                strong.loadingIndicator.hidden = true
+//                strong.recognizedText = text!
+//                strong.performSegueWithIdentifier(SegueID.RESULT_SEGUE, sender: strong)
+//            }
+//        })
     }
 }

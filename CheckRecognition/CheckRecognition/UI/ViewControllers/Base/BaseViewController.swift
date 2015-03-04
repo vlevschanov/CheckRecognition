@@ -13,11 +13,31 @@ class BaseViewController: UIViewController {
     struct SegueID {
         //no-op
     }
+    
+    var isLoaded : Bool = false
+    var isAppeared : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        isLoaded = true
+        isAppeared = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        isAppeared = false
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,7 +11,9 @@ import UIKit
 class ResultViewController: BaseViewController {
     
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var imageView: UIImageView!
     
+    var image : UIImage?
     var text : String? {
         didSet {
             if text? == nil || text!.isEmpty {
@@ -23,6 +25,7 @@ class ResultViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        textView.text = text
+        //textView.text = text
+        imageView.image = image
     }
 }

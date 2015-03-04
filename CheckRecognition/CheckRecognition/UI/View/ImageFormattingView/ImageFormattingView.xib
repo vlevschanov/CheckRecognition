@@ -7,10 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageFormattingView" customModule="CheckRecognition" customModuleProvider="target">
             <connections>
+                <outlet property="blackoutView" destination="Plz-Fo-IWq" id="y8k-NJ-6Jg"/>
+                <outlet property="frameView" destination="uMd-Yb-7Ov" id="xxK-kM-I2S"/>
+                <outlet property="frameViewBottom" destination="utF-h1-2uZ" id="VSJ-pd-jAf"/>
+                <outlet property="frameViewLeft" destination="eqj-8U-gj0" id="tgh-SD-yue"/>
+                <outlet property="frameViewRight" destination="4j2-gi-Ed7" id="lDo-gg-JuD"/>
+                <outlet property="frameViewTop" destination="3sr-49-eO1" id="X8s-hM-7g1"/>
                 <outlet property="imageView" destination="EL0-Mj-ehK" id="Dk4-U8-xsj"/>
                 <outlet property="scrollContent" destination="n4h-q7-twG" id="tC9-XC-fW8"/>
-                <outlet property="scrollContentLeading" destination="Tti-ac-KaS" id="1cV-XX-uiJ"/>
-                <outlet property="scrollContentTop" destination="3O6-5F-bqV" id="pID-3P-3qE"/>
+                <outlet property="scrollContentLeading" destination="v2o-C2-Ded" id="Qkc-PQ-4OJ"/>
+                <outlet property="scrollContentTop" destination="txr-A4-ecf" id="mZd-jf-CdD"/>
                 <outlet property="scrollView" destination="kgx-7o-fdG" id="l4y-eP-fC3"/>
             </connections>
         </placeholder>
@@ -30,33 +36,59 @@
                                 </imageView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="EL0-Mj-ehK" secondAttribute="bottom" id="F1R-Wl-vJS"/>
-                                <constraint firstAttribute="trailing" secondItem="EL0-Mj-ehK" secondAttribute="trailing" id="JKP-Kq-pVW"/>
-                                <constraint firstItem="EL0-Mj-ehK" firstAttribute="top" secondItem="n4h-q7-twG" secondAttribute="top" id="Wgp-eD-GbV"/>
-                                <constraint firstItem="EL0-Mj-ehK" firstAttribute="leading" secondItem="n4h-q7-twG" secondAttribute="leading" id="lyK-6j-605"/>
+                                <constraint firstItem="EL0-Mj-ehK" firstAttribute="leading" secondItem="n4h-q7-twG" secondAttribute="leading" id="A44-1k-Hlb"/>
+                                <constraint firstItem="EL0-Mj-ehK" firstAttribute="top" secondItem="n4h-q7-twG" secondAttribute="top" id="LJf-6H-CYI"/>
+                                <constraint firstAttribute="bottom" secondItem="EL0-Mj-ehK" secondAttribute="bottom" id="QMT-1M-OiZ"/>
+                                <constraint firstAttribute="trailing" secondItem="EL0-Mj-ehK" secondAttribute="trailing" id="eTb-B7-HZj"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="n4h-q7-twG" firstAttribute="top" secondItem="kgx-7o-fdG" secondAttribute="top" id="3O6-5F-bqV"/>
-                        <constraint firstItem="n4h-q7-twG" firstAttribute="leading" secondItem="kgx-7o-fdG" secondAttribute="leading" id="Tti-ac-KaS"/>
-                        <constraint firstAttribute="centerX" secondItem="n4h-q7-twG" secondAttribute="centerX" placeholder="YES" id="V1q-uh-XCW"/>
-                        <constraint firstAttribute="bottom" secondItem="n4h-q7-twG" secondAttribute="bottom" id="dFI-gU-Clb"/>
-                        <constraint firstAttribute="centerY" secondItem="n4h-q7-twG" secondAttribute="centerY" placeholder="YES" id="hP7-6d-a4s"/>
-                        <constraint firstAttribute="trailing" secondItem="n4h-q7-twG" secondAttribute="trailing" id="sk6-b6-xdh"/>
+                        <constraint firstAttribute="trailing" secondItem="n4h-q7-twG" secondAttribute="trailing" id="1UP-ha-aCv"/>
+                        <constraint firstAttribute="bottom" secondItem="n4h-q7-twG" secondAttribute="bottom" id="8KZ-6k-aBf"/>
+                        <constraint firstAttribute="centerY" secondItem="n4h-q7-twG" secondAttribute="centerY" placeholder="YES" id="LKI-Ao-Kyu"/>
+                        <constraint firstAttribute="centerX" secondItem="n4h-q7-twG" secondAttribute="centerX" placeholder="YES" id="tuS-7x-C5U"/>
+                        <constraint firstItem="n4h-q7-twG" firstAttribute="top" secondItem="kgx-7o-fdG" secondAttribute="top" id="txr-A4-ecf"/>
+                        <constraint firstItem="n4h-q7-twG" firstAttribute="leading" secondItem="kgx-7o-fdG" secondAttribute="leading" id="v2o-C2-Ded"/>
                     </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="lt2-OS-AOF"/>
                     </connections>
                 </scrollView>
+                <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-Fo-IWq" customClass="BlackoutView" customModule="CheckRecognition" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMd-Yb-7Ov">
+                    <rect key="frame" x="20" y="20" width="560" height="560"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="BvY-ga-nhV" appends="YES" id="jbo-a8-62i"/>
+                    </connections>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="kgx-7o-fdG" secondAttribute="trailing" id="38I-1Z-tEJ"/>
-                <constraint firstAttribute="bottom" secondItem="kgx-7o-fdG" secondAttribute="bottom" id="Cst-Qo-9a6"/>
-                <constraint firstItem="kgx-7o-fdG" firstAttribute="top" secondItem="cSE-EI-MvJ" secondAttribute="top" id="Tsl-C7-0FO"/>
-                <constraint firstItem="kgx-7o-fdG" firstAttribute="leading" secondItem="cSE-EI-MvJ" secondAttribute="leading" id="e2S-l6-iDS"/>
+                <constraint firstItem="uMd-Yb-7Ov" firstAttribute="top" secondItem="cSE-EI-MvJ" secondAttribute="top" constant="20" id="3sr-49-eO1"/>
+                <constraint firstAttribute="trailing" secondItem="uMd-Yb-7Ov" secondAttribute="trailing" constant="20" id="4j2-gi-Ed7"/>
+                <constraint firstAttribute="bottom" secondItem="Plz-Fo-IWq" secondAttribute="bottom" id="IhV-mC-Xac"/>
+                <constraint firstItem="kgx-7o-fdG" firstAttribute="leading" secondItem="cSE-EI-MvJ" secondAttribute="leading" id="Qrt-TE-U66"/>
+                <constraint firstItem="kgx-7o-fdG" firstAttribute="top" secondItem="cSE-EI-MvJ" secondAttribute="top" id="UeJ-er-Egi"/>
+                <constraint firstAttribute="trailing" secondItem="kgx-7o-fdG" secondAttribute="trailing" id="d77-8X-th3"/>
+                <constraint firstItem="uMd-Yb-7Ov" firstAttribute="leading" secondItem="cSE-EI-MvJ" secondAttribute="leading" constant="20" id="eqj-8U-gj0"/>
+                <constraint firstItem="Plz-Fo-IWq" firstAttribute="leading" secondItem="cSE-EI-MvJ" secondAttribute="leading" id="gj6-oj-VOt"/>
+                <constraint firstItem="Plz-Fo-IWq" firstAttribute="top" secondItem="cSE-EI-MvJ" secondAttribute="top" id="kwp-Lu-b0W"/>
+                <constraint firstAttribute="trailing" secondItem="Plz-Fo-IWq" secondAttribute="trailing" id="oUA-qx-coq"/>
+                <constraint firstAttribute="bottom" secondItem="uMd-Yb-7Ov" secondAttribute="bottom" constant="20" id="utF-h1-2uZ"/>
+                <constraint firstAttribute="bottom" secondItem="kgx-7o-fdG" secondAttribute="bottom" id="y2t-3u-UIV"/>
             </constraints>
             <point key="canvasLocation" x="899" y="489"/>
         </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" maximumNumberOfTouches="1" id="BvY-ga-nhV">
+            <connections>
+                <action selector="didRecognizePanGesture:" destination="-1" id="Uhu-1P-gxg"/>
+                <outlet property="delegate" destination="-1" id="Ctz-Ie-J16"/>
+            </connections>
+        </panGestureRecognizer>
     </objects>
 </document>
