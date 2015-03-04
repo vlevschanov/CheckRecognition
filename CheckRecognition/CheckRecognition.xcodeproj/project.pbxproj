@@ -14,6 +14,7 @@
 		5751BCAF1AA46D7A0091A8D7 /* ImageFormattingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */; };
 		575970B61A24C2850071D14F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575970B51A24C2850071D14F /* Logger.swift */; };
 		575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 575970C51A24E9030071D14F /* CRCheckAPI.mm */; };
+		57FA37421AA734FB002FCD94 /* UIImage+CRFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FA37411AA734FB002FCD94 /* UIImage+CRFilters.m */; };
 		8437AD5C1A23DB9A002FD899 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8437AD5B1A23DB9A002FD899 /* tessdata */; };
 		8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D1DD1A20E5DE00487D58 /* AppDelegate.swift */; };
 		8446D1E51A20E5DE00487D58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8446D1E31A20E5DE00487D58 /* Main.storyboard */; };
@@ -63,6 +64,8 @@
 		575970C41A24E9030071D14F /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
 		575970C51A24E9030071D14F /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
 		575970CD1A24E9670071D14F /* CRLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRLogger.h; sourceTree = "<group>"; };
+		57FA37401AA734FB002FCD94 /* UIImage+CRFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRFilters.h"; sourceTree = "<group>"; };
+		57FA37411AA734FB002FCD94 /* UIImage+CRFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CRFilters.m"; sourceTree = "<group>"; };
 		8437AD5B1A23DB9A002FD899 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		8446D1D81A20E5DE00487D58 /* CheckRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446D1DC1A20E5DE00487D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				84FA04EF1A251EF3002BD5B5 /* NSString+CRFilePath.m */,
 				84FA04F01A251EF3002BD5B5 /* UIImage+CRCheckImage.h */,
 				84FA04F11A251EF3002BD5B5 /* UIImage+CRCheckImage.mm */,
+				57FA37401AA734FB002FCD94 /* UIImage+CRFilters.h */,
+				57FA37411AA734FB002FCD94 /* UIImage+CRFilters.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57FA37421AA734FB002FCD94 /* UIImage+CRFilters.m in Sources */,
 				575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */,
 				8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */,
 				84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */,

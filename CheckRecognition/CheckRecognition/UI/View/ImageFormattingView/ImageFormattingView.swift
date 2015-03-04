@@ -30,7 +30,7 @@ class ImageFormattingView: MemoryObservableView {
     var image : UIImage? {
         didSet {
             if image? != nil {
-                imageView.image = image
+                self.imageView.image = self.image
                 layoutImage()
             }
         }
@@ -38,35 +38,40 @@ class ImageFormattingView: MemoryObservableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        frameView.layer.borderColor = UIColor.yellowColor().CGColor
-        frameView.layer.borderWidth = 1.0
+        self.frameView.layer.borderColor = UIColor.yellowColor().CGColor
+        self.frameView.layer.borderWidth = 1.0
     }
     
     // MARK: Layout
     
     private func layoutBlackoutView() {
-        blackoutView.clippingPath = UIBezierPath(rect: frameView.frame)
+        self.blackoutView.clippingPath = UIBezierPath(rect: frameView.frame)
     }
     
     private func layoutImage() {
         
-        let rect = AVMakeRectWithAspectRatioInsideRect(image!.size, self.frame);
-        let imgSize : CGSize = image!.size
+        let rect = AVMakeRectWithAspectRatioInsideRect(self.image!.size, self.frame);
+        let imgSize : CGSize = self.image!.size
         let scale = rect.width / imgSize.width
         
-        scrollView.minimumZoomScale = scale
-        scrollView.zoomScale = scale
-        scrollView.maximumZoomScale = IMAGE_MAXIMUM_SCALE
+        self.scrollView.minimumZoomScale = scale
+        self.scrollView.zoomScale = scale
+        self.scrollView.maximumZoomScale = IMAGE_MAXIMUM_SCALE
+        self.scrollView.contentSize = self.scrollView.frame.size
         
-        updateImageCenter()
+        let size = CGRectIntegral(rect).size
+        let topInset = fmax(floor((self.frame.height - size.height) * 0.5), 0.0)
+        let leftInset = fmax(floor((self.frame.width - size.width) * 0.5), 0.0)
+        self.scrollView.contentInset = UIEdgeInsetsMake(topInset, leftInset, 0.0, 0.0)
+        
         layoutBlackoutView()
     }
     
     private func updateImageCenter() {
-        let rect = CGRectIntegral(AVMakeRectWithAspectRatioInsideRect(image!.size, self.frame));
-        scrollContentLeading.constant = floor((self.frame.width - rect.width) * 0.5)
-        scrollContentTop.constant = floor((self.frame.height - rect.height) * 0.5)
-        layoutIfNeeded()
+        let size = self.scrollView.contentSize
+        let topInset = fmax(floor((self.frame.height - size.height) * 0.5), 0.0)
+        let leftInset = fmax(floor((self.frame.width - size.width) * 0.5), 0.0)
+        self.scrollView.contentInset = UIEdgeInsetsMake(topInset, leftInset, 0.0, 0.0)
     }
     
     // MARK: Formatting logic
@@ -80,79 +85,80 @@ class ImageFormattingView: MemoryObservableView {
     var previousTouch : CGPoint = CGPointZero
     
     func getFormattedImage() -> UIImage? {
-        if image? == nil {
+        if self.image? == nil {
             return nil
         }
         
-        var size = image!.size
-        var imgScale = image!.scale
+        var size = self.image!.size
+        var imgScale = self.image!.scale
       
         UIGraphicsBeginImageContextWithOptions(size, true,  imgScale)
         let ctx = UIGraphicsGetCurrentContext();
         
-        image!.drawInRect(CGRectMake(0.0, 0.0, size.width, size.height))
+        self.image!.drawInRect(CGRectMake(0.0, 0.0, size.width, size.height))
   
         let img = UIGraphicsGetImageFromCurrentImageContext();
         
         UIGraphicsEndImageContext();
         
-        var rect = self.convertRect(frameView.frame, toView: scrollContent)
+        var rect = self.convertRect(self.frameView.frame, toView: self.scrollContent)
         
         rect = CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(imgScale, imgScale))
         
-        let croppedImage = CGImageCreateWithImageInRect(img.CGImage, rect)
-        return UIImage(CGImage: croppedImage, scale: imgScale, orientation: img.imageOrientation)
+        let croppedCGImage = CGImageCreateWithImageInRect(img.CGImage, rect)
+        let croppedImage = UIImage(CGImage: croppedCGImage, scale: imgScale, orientation: img.imageOrientation)
+        
+        return croppedImage?.CR_blackAndWhite()
     }
     
     // MARK: Actions
     
     @IBAction func didRecognizePanGesture(sender: UIPanGestureRecognizer) {
-        if sender.view? == frameView {
-            let touch : CGPoint = sender.locationInView(self)
+        if sender.view? == self.frameView {
+            let touch = sender.locationInView(self)
             
             switch sender.state {
                 
             case .Began:
-                let center : CGPoint = CGPointMake(frameView.frame.midX, frameView.frame.midY)
-                if touch.x < center.x && touch.y < center.y {
-                    touchedCorner = .TopLeft
+                let center = CGPointMake(self.frameView.frame.midX, self.frameView.frame.midY)
+                
+                if touch.x <= center.x {
+                    self.touchedCorner = touch.y <= center.y ? .TopLeft : .BottomLeft
                 }
-                else if touch.x > center.x && touch.y < center.y {
-                    touchedCorner = .TopRight
+                else {
+                    self.touchedCorner = touch.y <= center.y ? .TopRight : .BottomRight
                 }
-                else if touch.x < center.x && touch.y > center.y {
-                    touchedCorner = .BottomLeft
-                }
-                else if touch.x > center.x && touch.y > center.y {
-                    touchedCorner = .BottomRight
-                }
-                frameDragging = true
-                previousTouch = touch
+                
+                self.frameDragging = true
+                self.previousTouch = touch
                 
             case .Changed:
-                let x = touch.x - previousTouch.x
-                let y = touch.y - previousTouch.y
+                let diffX = touch.x - self.previousTouch.x
+                let diffY = touch.y - self.previousTouch.y
                 
                 switch touchedCorner! {
                 case .TopLeft:
-                    frameViewLeft.constant += x
-                    frameViewTop.constant += y
+                    self.frameViewLeft.constant += diffX
+                    self.frameViewTop.constant  += diffY
+                    
                 case .TopRight:
-                    frameViewRight.constant -= x
-                    frameViewTop.constant + y
+                    self.frameViewRight.constant -= diffX
+                    self.frameViewTop.constant   += diffY
+                    
                 case .BottomLeft:
-                    frameViewLeft.constant   += x
-                    frameViewBottom.constant -= y
+                    self.frameViewLeft.constant   += diffX
+                    self.frameViewBottom.constant -= diffY
+                    
                 case .BottomRight:
-                    frameViewRight.constant -= x
-                    frameViewBottom.constant -= y
+                    self.frameViewRight.constant  -= diffX
+                    self.frameViewBottom.constant -= diffY
                 }
-                previousTouch = touch
+                self.previousTouch = touch
                 self.layoutIfNeeded()
                 layoutBlackoutView()
                 
             default:
-                frameDragging = false
+                self.frameDragging = false
             }
         }
     }
@@ -166,6 +172,7 @@ extension ImageFormattingView : UIScrollViewDelegate {
     }
     
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        Logger.debug("content size: \(scrollView.contentSize)")
         return scrollContent
     }
     

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6246"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Preview-->
@@ -36,7 +37,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Preview" id="qqX-zB-mo6">
-                        <barButtonItem key="rightBarButtonItem" title="Scan" id="eZk-yt-aze">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="eZk-yt-aze">
                             <connections>
                                 <action selector="scanButtonDidTap:" destination="Uzo-3C-0Rh" id="4kQ-87-pgg"/>
                             </connections>
@@ -82,6 +83,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPh-EQ-0jz">
+                                <rect key="frame" x="16" y="64" width="568" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IMa-Yi-xv0">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
@@ -89,8 +97,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IMa-Yi-xv0" secondAttribute="trailing" id="BBv-i3-aGX"/>
+                            <constraint firstItem="sPh-EQ-0jz" firstAttribute="top" secondItem="7GV-mv-ui8" secondAttribute="bottom" id="GIs-0B-xZe"/>
                             <constraint firstItem="IMa-Yi-xv0" firstAttribute="top" secondItem="Csm-py-Hc6" secondAttribute="top" id="I4E-1J-5oc"/>
+                            <constraint firstItem="sPh-EQ-0jz" firstAttribute="leading" secondItem="Csm-py-Hc6" secondAttribute="leadingMargin" id="MBj-pk-IWM"/>
                             <constraint firstItem="IMa-Yi-xv0" firstAttribute="leading" secondItem="Csm-py-Hc6" secondAttribute="leading" id="NI2-QB-y6q"/>
+                            <constraint firstItem="WGp-DT-HXo" firstAttribute="top" secondItem="sPh-EQ-0jz" secondAttribute="bottom" id="NOE-Cj-fxs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sPh-EQ-0jz" secondAttribute="trailing" id="NOz-UR-lLA"/>
                             <constraint firstItem="WGp-DT-HXo" firstAttribute="top" secondItem="IMa-Yi-xv0" secondAttribute="bottom" id="O3R-B4-Xs6"/>
                             <constraint firstItem="IMa-Yi-xv0" firstAttribute="top" secondItem="7GV-mv-ui8" secondAttribute="bottom" id="fMM-DA-8eJ"/>
                             <constraint firstAttribute="bottom" secondItem="IMa-Yi-xv0" secondAttribute="bottom" id="pXe-gf-njT"/>
@@ -102,8 +114,17 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="p3M-Kv-ltb">
+                        <barButtonItem key="rightBarButtonItem" title="Scan" id="hKb-TJ-Wfb">
+                            <connections>
+                                <action selector="didTappedScanButton:" destination="Ie8-cV-LFR" id="Rgp-OJ-h4o"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="imageView" destination="IMa-Yi-xv0" id="dMP-3f-NaW"/>
+                        <outlet property="textView" destination="sPh-EQ-0jz" id="A2g-dx-vft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RRa-IU-jgE" userLabel="First Responder" sceneMemberID="firstResponder"/>

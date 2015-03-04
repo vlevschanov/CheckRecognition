@@ -20,7 +20,7 @@ class ScanViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cameraView.delegate = self
+        self.cameraView.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -28,18 +28,18 @@ class ScanViewController: BaseViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        cameraView.start()
+        self.cameraView.start()
     }
     
     override func viewDidDisappear(animated: Bool) {
-        cameraView.stop()
+        self.cameraView.stop()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case SegueID.PREVIEW_SEGUE:
             let vc = segue.destinationViewController as PreviewViewController
-            vc.photoImage = scanImage
+            vc.photoImage = self.scanImage
         default:
             break
         }
@@ -56,8 +56,8 @@ class ScanViewController: BaseViewController {
 
 extension ScanViewController : CameraViewDelegate {
     func cameraView(view: CameraView, didCapture image: UIImage?, error: NSError?) {
-        scanImage = image
-        if scanImage != nil {
+        self.scanImage = image
+        if self.scanImage != nil {
             performSegueWithIdentifier(SegueID.PREVIEW_SEGUE, sender: self)
         }
     }
@@ -66,8 +66,8 @@ extension ScanViewController : CameraViewDelegate {
 extension ScanViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion: nil)
-        scanImage = info[UIImagePickerControllerOriginalImage] as? UIImage
-        if scanImage != nil {
+        self.scanImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        if self.scanImage != nil {
             performSegueWithIdentifier(SegueID.PREVIEW_SEGUE, sender: self)
         }
     }

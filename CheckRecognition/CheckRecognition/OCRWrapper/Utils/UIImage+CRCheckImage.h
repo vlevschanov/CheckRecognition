@@ -14,8 +14,6 @@ namespace CheckOCR {
 
 @interface UIImage (CRCheckImage)
 
-- (UIImage *)CR_blackAndWhite;
-
 - (CheckOCR::CheckImage *)CR_checkImage;
 
 @end

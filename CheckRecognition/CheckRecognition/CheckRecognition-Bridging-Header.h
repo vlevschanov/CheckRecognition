@@ -3,3 +3,4 @@
 //
 
 #import "CRCheckAPI.h"
+#import "UIImage+CRFilters.h"

@@ -36,7 +36,7 @@ class PreviewViewController: BaseViewController {
         super.viewDidAppear(animated)
         
         if !loaded {
-            photoImageFormattingView.image = photoImage
+            self.photoImageFormattingView.image = self.photoImage
         }
     }
     
@@ -45,7 +45,7 @@ class PreviewViewController: BaseViewController {
         case SegueID.RESULT_SEGUE:
             let vc = segue.destinationViewController as ResultViewController
             //vc.text = recognizedText
-            vc.image = photoImageFormattingView.getFormattedImage()
+            vc.image = self.photoImageFormattingView.getFormattedImage()
         default:
             break
         }
@@ -53,13 +53,5 @@ class PreviewViewController: BaseViewController {
     
     @IBAction func scanButtonDidTap(sender: UIBarButtonItem) {
         performSegueWithIdentifier(SegueID.RESULT_SEGUE, sender: self)
-//        loadingIndicator.hidden = false
-//        CRCheckAPI.sharedAPI().recognizeImage(photoImage!, withCallback: { [weak self] (text: String!, error: NSError!, succes: Bool) -> Void in
-//            if let strong = self {
-//                strong.loadingIndicator.hidden = true
-//                strong.recognizedText = text!
-//                strong.performSegueWithIdentifier(SegueID.RESULT_SEGUE, sender: strong)
-//            }
-//        })
     }
 }

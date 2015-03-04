@@ -50,7 +50,7 @@
     
     if(self.isCancelled) return;
     
-    _ocrImage = [[_srcImage CR_blackAndWhite] CR_checkImage];
+    _ocrImage = [_srcImage CR_checkImage];
     
     if(self.isCancelled) return;
     
