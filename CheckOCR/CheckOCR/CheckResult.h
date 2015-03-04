@@ -10,18 +10,30 @@
 #define __CheckOCR__CheckResult__
 
 #include <stdio.h>
+#include <vector>
+
+#include "CheckResultComponentType.h"
 
 namespace CheckOCR {
     
+    class CheckResultComponent;
+    
     class CheckResult {
     private:
-        const char* _result;
+        int _status;
+        ComponentType _componentsType;
+        std::vector<CheckResultComponent> _components;
         
     public:
-        CheckResult(const char* result);
+        CheckResult(int status);
+        CheckResult(int status, ComponentType componentsType, const std::vector<CheckResultComponent> components);
         ~CheckResult();
         
-        const char* GetResult();
+        int GetStatus();
+        ComponentType getComponentsType();
+        const std::vector<CheckResultComponent> GetComponents();
+        
+        bool IsSuccess();
     };    
 }
 

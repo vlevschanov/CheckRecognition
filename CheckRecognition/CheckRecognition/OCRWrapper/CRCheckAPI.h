@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-typedef void (^OCRRecognitionCallback)(NSString *text, NSError *error, BOOL success);
+@class CRCheckResult;
+
+typedef void (^OCRRecognitionCallback)(CRCheckResult *result);
 
 @interface CRCheckAPI : NSObject
 

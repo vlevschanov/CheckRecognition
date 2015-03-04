@@ -32,6 +32,10 @@
 		84D2AD111A1FED8300AFEAFE /* CheckAPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D2AD0F1A1FED8300AFEAFE /* CheckAPI.cpp */; };
 		84D2AD1C1A1FFB7800AFEAFE /* CheckImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D2AD1A1A1FFB7800AFEAFE /* CheckImage.cpp */; };
 		84D2AD1F1A1FFB9F00AFEAFE /* CheckResult.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D2AD1D1A1FFB9F00AFEAFE /* CheckResult.cpp */; };
+		84D8A8211AA79552006C5AD1 /* CheckResultComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A81F1AA79552006C5AD1 /* CheckResultComponent.cpp */; };
+		84D8A8221AA7A144006C5AD1 /* CheckResultComponent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84D8A8201AA79552006C5AD1 /* CheckResultComponent.h */; };
+		84D8A8251AA7A69C006C5AD1 /* CheckResultComponentType.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A8241AA7A69C006C5AD1 /* CheckResultComponentType.cpp */; };
+		84D8A8261AA7AF2F006C5AD1 /* CheckResultComponentType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84D8A8231AA7A5C3006C5AD1 /* CheckResultComponentType.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +45,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				84D8A8261AA7AF2F006C5AD1 /* CheckResultComponentType.h in CopyFiles */,
+				84D8A8221AA7A144006C5AD1 /* CheckResultComponent.h in CopyFiles */,
 				84CC72531A2218320007E07E /* CheckImage.h in CopyFiles */,
 				84CC72541A2218320007E07E /* CheckResult.h in CopyFiles */,
 				84CC72521A22178A0007E07E /* CheckAPI.h in CopyFiles */,
@@ -127,6 +133,10 @@
 		84D2AD1B1A1FFB7800AFEAFE /* CheckImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckImage.h; sourceTree = "<group>"; };
 		84D2AD1D1A1FFB9F00AFEAFE /* CheckResult.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckResult.cpp; sourceTree = "<group>"; };
 		84D2AD1E1A1FFB9F00AFEAFE /* CheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckResult.h; sourceTree = "<group>"; };
+		84D8A81F1AA79552006C5AD1 /* CheckResultComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckResultComponent.cpp; sourceTree = "<group>"; };
+		84D8A8201AA79552006C5AD1 /* CheckResultComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckResultComponent.h; sourceTree = "<group>"; };
+		84D8A8231AA7A5C3006C5AD1 /* CheckResultComponentType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckResultComponentType.h; sourceTree = "<group>"; };
+		84D8A8241AA7A69C006C5AD1 /* CheckResultComponentType.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckResultComponentType.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +194,10 @@
 				84D2AD1B1A1FFB7800AFEAFE /* CheckImage.h */,
 				84D2AD1D1A1FFB9F00AFEAFE /* CheckResult.cpp */,
 				84D2AD1E1A1FFB9F00AFEAFE /* CheckResult.h */,
+				84D8A81F1AA79552006C5AD1 /* CheckResultComponent.cpp */,
+				84D8A8201AA79552006C5AD1 /* CheckResultComponent.h */,
+				84D8A8231AA7A5C3006C5AD1 /* CheckResultComponentType.h */,
+				84D8A8241AA7A69C006C5AD1 /* CheckResultComponentType.cpp */,
 				8446D1CE1A20BD1600487D58 /* CheckHelper.h */,
 				84CC724D1A220B500007E07E /* CheckOCR.h */,
 			);
@@ -353,6 +367,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84D2AD1F1A1FFB9F00AFEAFE /* CheckResult.cpp in Sources */,
+				84D8A8211AA79552006C5AD1 /* CheckResultComponent.cpp in Sources */,
+				84D8A8251AA7A69C006C5AD1 /* CheckResultComponentType.cpp in Sources */,
 				84D2AD1C1A1FFB7800AFEAFE /* CheckImage.cpp in Sources */,
 				84D2AD111A1FED8300AFEAFE /* CheckAPI.cpp in Sources */,
 			);

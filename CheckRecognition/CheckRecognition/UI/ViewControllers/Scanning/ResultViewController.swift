@@ -36,16 +36,19 @@ class ResultViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //textView.text = text
         self.imageView.image = image
     }
     
     @IBAction func didTappedScanButton(sender: UIBarButtonItem) {
-        //loadingIndicator.hidden = false
-        CRCheckAPI.sharedAPI().recognizeImage(self.image!, withCallback: { [weak self] (text: String!, error: NSError!, succes: Bool) -> Void in
+        CRCheckAPI.sharedAPI().recognizeImage(self.image!, withCallback: { [weak self] (result: CRCheckResult!) -> Void in
             if let strong = self {
-                //strong.loadingIndicator.hidden = true
-                strong.text = text
+                if result.components.count > 0 {
+                    let component = result.components[0] as CRCheckResultComponent
+                    strong.text = component.text
+                }
+                else {
+                    strong.text = nil
+                }
             }
         })
     }

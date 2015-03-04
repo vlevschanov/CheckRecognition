@@ -10,6 +10,8 @@
 #import "CRLogger.h"
 
 #import "UIImage+CRCheckImage.h"
+#import "CRCheckResult.h"
+#import "CRCheckResultComponent.h"
 
 #include <CheckOCR/CheckOCR.h>
 
@@ -17,7 +19,7 @@
     UIImage *_srcImage;
     NSString *_dataPath;
     NSString *_language;
-    NSString *_result;
+    CRCheckResult *_result;
     
     CheckOCR::CheckAPI *_ocrAPI;
     CheckOCR::CheckImage *_ocrImage;
@@ -44,8 +46,9 @@
 }
 
 - (void)main {
+    _result = nil;
     _ocrAPI = new CheckOCR::CheckAPI();
-    BOOL result = _ocrAPI->init(_dataPath.UTF8String, _language.UTF8String);
+    BOOL result = _ocrAPI->Init(_dataPath.UTF8String, _language.UTF8String);
     NSAssert(result, @"Couldn't initialize OCR API with data path: %@ and labguage: %@", _dataPath, _language);
     
     if(self.isCancelled) return;
@@ -54,15 +57,37 @@
     
     if(self.isCancelled) return;
     
-    _ocrResult = _ocrAPI->recognize(_ocrImage);
+    _ocrResult = _ocrAPI->Recognize(_ocrImage);
+    if(!_ocrResult->IsSuccess()) {
+        DLog(@"OCR has failed with status %d", _ocrResult->GetStatus());
+        //TODO: think about error handling
+        return;
+    }
     
     if(self.isCancelled) return;
     
-    _result = [NSString stringWithUTF8String:_ocrResult->GetResult()];
-    ILog(@"did recognize text: %@", _result);
+    const std::vector<CheckOCR::CheckResultComponent> components = _ocrResult->GetComponents();
+    NSMutableArray *componentsArray = [NSMutableArray arrayWithCapacity:components.size()];
+    
+    for(std::vector<CheckOCR::CheckResultComponent>::const_iterator it = components.begin(); it != components.end(); ++it) {
+        if(self.isCancelled) return;
+        
+        CheckOCR::CheckResultComponent component = *it;
+        
+        NSString *text = [NSString stringWithCString:component.GetText().c_str() encoding:NSUTF8StringEncoding];
+        CheckOCR::ComponentRect compRect = component.GetRect();
+        CGRect rect = CGRectMake(compRect.x, compRect.y, compRect.width, compRect.height);
+        
+        CRCheckResultComponent *comp = [[CRCheckResultComponent alloc] initWithText:text rect:rect confidence:component.GetConfidence()];
+        [componentsArray addObject:comp];
+    }
+    
+    _result = [[CRCheckResult alloc] initWithComponents:componentsArray];
+    
+    ILog(@"did recognize with result: %@", _result);
 }
 
-- (NSString *)result {
+- (CRCheckResult *)result {
     return _result;
 }
 

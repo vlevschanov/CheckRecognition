@@ -9,6 +9,8 @@
 #ifndef CheckOCR_CheckAPI_h
 #define CheckOCR_CheckAPI_h
 
+#include "CheckResultComponentType.h"
+
 namespace tesseract {
     class TessBaseAPI;
 }
@@ -26,11 +28,12 @@ namespace CheckOCR {
         CheckAPI();
         ~CheckAPI();
         
-        bool init(const char* datapath, const char* language);
-        bool deinit();
+        bool Init(const char* datapath, const char* language);
         
-        CheckResult* recognize(CheckImage *image);
-        CheckResult* recognize(const unsigned char* imagedata, int width, int height, int bytes_per_pixel, int bytes_per_line);
+        void SetImage(CheckImage *image);
+        
+        CheckResult* Recognize(ComponentType type = CT_BLOCK);
+        CheckResult* Recognize(CheckImage *image, ComponentType type = CT_BLOCK);
     };
 }
 

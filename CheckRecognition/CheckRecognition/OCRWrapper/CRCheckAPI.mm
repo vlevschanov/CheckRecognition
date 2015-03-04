@@ -79,7 +79,7 @@ static NSString * const kCRDataPath = @"tessdata";
 
 - (void)didFinishRecognition {
     if(self.callback) {
-        self.callback(self.currentOperation.result, nil, YES);
+        self.callback(self.currentOperation.result);
         self.callback = nil;
         self.currentOperation = nil;
     }

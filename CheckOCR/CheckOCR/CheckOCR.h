@@ -11,6 +11,8 @@
 
 #include "CheckAPI.h"
 #include "CheckImage.h"
+#include "CheckResultComponentType.h"
+#include "CheckResultComponent.h"
 #include "CheckResult.h"
 
 #endif

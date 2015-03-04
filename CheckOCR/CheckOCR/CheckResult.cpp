@@ -7,18 +7,30 @@
 //
 
 #include "CheckResult.h"
+#include "CheckResultComponent.h"
 
 namespace CheckOCR {
     
-    CheckResult::CheckResult(const char* result) {
-        _result = result;
+    CheckResult::CheckResult(int status) : _status(status) {};
+    
+    CheckResult::CheckResult(int status, ComponentType componentsType, const std::vector<CheckResultComponent> components) :
+    _status(status), _componentsType(componentsType), _components(components) {};
+    
+    CheckResult::~CheckResult() { }
+    
+    int CheckResult::GetStatus() {
+        return _status;
+    }
+    ComponentType CheckResult::getComponentsType() {
+        return _componentsType;
     }
     
-    CheckResult::~CheckResult() {
-        delete _result;
+    const std::vector<CheckResultComponent> CheckResult::GetComponents() {
+        return _components;
     }
-    const char* CheckResult::GetResult() {
-        return _result;
+    
+    bool CheckResult::IsSuccess() {
+        return _status == 0;
     }
     
 }
