@@ -12,31 +12,32 @@
 		5751BCAA1AA46CB10091A8D7 /* CameraView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751BCA81AA46CB10091A8D7 /* CameraView.xib */; };
 		5751BCAD1AA46D330091A8D7 /* ImageFormattingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5751BCAC1AA46D330091A8D7 /* ImageFormattingView.swift */; };
 		5751BCAF1AA46D7A0091A8D7 /* ImageFormattingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */; };
-		575970B61A24C2850071D14F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575970B51A24C2850071D14F /* Logger.swift */; };
-		575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 575970C51A24E9030071D14F /* CRCheckAPI.mm */; };
-		57FA37421AA734FB002FCD94 /* UIImage+CRFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 57FA37411AA734FB002FCD94 /* UIImage+CRFilters.m */; };
+		575392A21AA86E5400403445 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753929E1AA86E5400403445 /* CameraCapture.swift */; };
+		575392A31AA86E5400403445 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575392A11AA86E5400403445 /* Logger.swift */; };
+		57D83D621AA8C29A007F200C /* CheckResultImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D611AA8C29A007F200C /* CheckResultImageProcessor.swift */; };
+		57D83D741AA8C2BD007F200C /* CRCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D661AA8C2BD007F200C /* CRCheckResult.m */; };
+		57D83D751AA8C2BD007F200C /* CRCheckResultComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D681AA8C2BD007F200C /* CRCheckResultComponent.m */; };
+		57D83D761AA8C2BD007F200C /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D6A1AA8C2BD007F200C /* CRCheckAPI.mm */; };
+		57D83D771AA8C2BD007F200C /* CRRecognitionOperation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D6C1AA8C2BD007F200C /* CRRecognitionOperation.mm */; };
+		57D83D781AA8C2BD007F200C /* NSString+CRFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D6F1AA8C2BD007F200C /* NSString+CRFilePath.m */; };
+		57D83D791AA8C2BD007F200C /* UIImage+CRCheckImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D711AA8C2BD007F200C /* UIImage+CRCheckImage.mm */; };
+		57D83D7A1AA8C2BD007F200C /* UIImage+CRFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D731AA8C2BD007F200C /* UIImage+CRFilters.m */; };
 		8437AD5C1A23DB9A002FD899 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 8437AD5B1A23DB9A002FD899 /* tessdata */; };
 		8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D1DD1A20E5DE00487D58 /* AppDelegate.swift */; };
 		8446D1E51A20E5DE00487D58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8446D1E31A20E5DE00487D58 /* Main.storyboard */; };
 		8446D1E71A20E5DE00487D58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8446D1E61A20E5DE00487D58 /* Images.xcassets */; };
 		8446D1EA1A20E5DE00487D58 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8446D1E81A20E5DE00487D58 /* LaunchScreen.xib */; };
-		8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446D2001A20E65600487D58 /* CameraCapture.swift */; };
 		844F3ED51A20EA2C001428AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844F3ED41A20EA2C001428AD /* AVFoundation.framework */; };
 		84CC71D61A21ECDC0007E07E /* libCheckOCR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84DD8E751A215B9500C9CEC0 /* libCheckOCR.a */; };
 		84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */; };
 		84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB21A2B4012002DB34A /* ResultViewController.swift */; };
 		84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D177511A2A4D73002F275A /* NibDesignableView.swift */; };
-		84D8A8321AA7BF79006C5AD1 /* CRCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A82F1AA7BF79006C5AD1 /* CRCheckResult.m */; };
-		84D8A8331AA7BF79006C5AD1 /* CRCheckResultComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8A8311AA7BF79006C5AD1 /* CRCheckResultComponent.m */; };
 		84EA17741AA67BF600B5EB50 /* BlackoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA17731AA67BF600B5EB50 /* BlackoutView.swift */; };
-		84FA04F21A251EF3002BD5B5 /* NSString+CRFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04EF1A251EF3002BD5B5 /* NSString+CRFilePath.m */; };
-		84FA04F31A251EF3002BD5B5 /* UIImage+CRCheckImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04F11A251EF3002BD5B5 /* UIImage+CRCheckImage.mm */; };
 		84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04FB1A25202A002BD5B5 /* BaseViewController.swift */; };
 		84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04FE1A2521AB002BD5B5 /* HistoryViewController.swift */; };
 		84FA05041A2521AB002BD5B5 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA05001A2521AB002BD5B5 /* ScanViewController.swift */; };
 		84FA05051A2521AB002BD5B5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA05021A2521AB002BD5B5 /* SettingsViewController.swift */; };
 		84FA05081A252411002BD5B5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA05071A252411002BD5B5 /* TabBarController.swift */; };
-		84FA050D1A25280A002BD5B5 /* CRRecognitionOperation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84FA050C1A25280A002BD5B5 /* CRRecognitionOperation.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,12 +63,24 @@
 		5751BCA81AA46CB10091A8D7 /* CameraView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraView.xib; sourceTree = "<group>"; };
 		5751BCAC1AA46D330091A8D7 /* ImageFormattingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFormattingView.swift; sourceTree = "<group>"; };
 		5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageFormattingView.xib; sourceTree = "<group>"; };
-		575970B51A24C2850071D14F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		575970C41A24E9030071D14F /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
-		575970C51A24E9030071D14F /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
-		575970CD1A24E9670071D14F /* CRLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CRLogger.h; sourceTree = "<group>"; };
-		57FA37401AA734FB002FCD94 /* UIImage+CRFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRFilters.h"; sourceTree = "<group>"; };
-		57FA37411AA734FB002FCD94 /* UIImage+CRFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CRFilters.m"; sourceTree = "<group>"; };
+		5753929E1AA86E5400403445 /* CameraCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCapture.swift; sourceTree = "<group>"; };
+		575392A01AA86E5400403445 /* CRLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLogger.h; sourceTree = "<group>"; };
+		575392A11AA86E5400403445 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		57D83D611AA8C29A007F200C /* CheckResultImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResultImageProcessor.swift; sourceTree = "<group>"; };
+		57D83D651AA8C2BD007F200C /* CRCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResult.h; sourceTree = "<group>"; };
+		57D83D661AA8C2BD007F200C /* CRCheckResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResult.m; sourceTree = "<group>"; };
+		57D83D671AA8C2BD007F200C /* CRCheckResultComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResultComponent.h; sourceTree = "<group>"; };
+		57D83D681AA8C2BD007F200C /* CRCheckResultComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResultComponent.m; sourceTree = "<group>"; };
+		57D83D691AA8C2BD007F200C /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
+		57D83D6A1AA8C2BD007F200C /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
+		57D83D6B1AA8C2BD007F200C /* CRRecognitionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRecognitionOperation.h; sourceTree = "<group>"; };
+		57D83D6C1AA8C2BD007F200C /* CRRecognitionOperation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRRecognitionOperation.mm; sourceTree = "<group>"; };
+		57D83D6E1AA8C2BD007F200C /* NSString+CRFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CRFilePath.h"; sourceTree = "<group>"; };
+		57D83D6F1AA8C2BD007F200C /* NSString+CRFilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CRFilePath.m"; sourceTree = "<group>"; };
+		57D83D701AA8C2BD007F200C /* UIImage+CRCheckImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRCheckImage.h"; sourceTree = "<group>"; };
+		57D83D711AA8C2BD007F200C /* UIImage+CRCheckImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+CRCheckImage.mm"; sourceTree = "<group>"; };
+		57D83D721AA8C2BD007F200C /* UIImage+CRFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRFilters.h"; sourceTree = "<group>"; };
+		57D83D731AA8C2BD007F200C /* UIImage+CRFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CRFilters.m"; sourceTree = "<group>"; };
 		8437AD5B1A23DB9A002FD899 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		8446D1D81A20E5DE00487D58 /* CheckRecognition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckRecognition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8446D1DC1A20E5DE00487D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,29 +88,18 @@
 		8446D1E41A20E5DE00487D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8446D1E61A20E5DE00487D58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8446D1E91A20E5DE00487D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8446D2001A20E65600487D58 /* CameraCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCapture.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		844F3ED41A20EA2C001428AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		84CFCFB21A2B4012002DB34A /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		84D177511A2A4D73002F275A /* NibDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignableView.swift; sourceTree = "<group>"; };
-		84D8A82E1AA7BF79006C5AD1 /* CRCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResult.h; sourceTree = "<group>"; };
-		84D8A82F1AA7BF79006C5AD1 /* CRCheckResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResult.m; sourceTree = "<group>"; };
-		84D8A8301AA7BF79006C5AD1 /* CRCheckResultComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResultComponent.h; sourceTree = "<group>"; };
-		84D8A8311AA7BF79006C5AD1 /* CRCheckResultComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResultComponent.m; sourceTree = "<group>"; };
 		84DD8E6F1A215B9500C9CEC0 /* CheckOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CheckOCR.xcodeproj; path = ../CheckOCR/CheckOCR.xcodeproj; sourceTree = "<group>"; };
 		84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckRecognition-Bridging-Header.h"; sourceTree = "<group>"; };
 		84EA17731AA67BF600B5EB50 /* BlackoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackoutView.swift; sourceTree = "<group>"; };
-		84FA04EE1A251EF3002BD5B5 /* NSString+CRFilePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CRFilePath.h"; sourceTree = "<group>"; };
-		84FA04EF1A251EF3002BD5B5 /* NSString+CRFilePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CRFilePath.m"; sourceTree = "<group>"; };
-		84FA04F01A251EF3002BD5B5 /* UIImage+CRCheckImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRCheckImage.h"; sourceTree = "<group>"; };
-		84FA04F11A251EF3002BD5B5 /* UIImage+CRCheckImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+CRCheckImage.mm"; sourceTree = "<group>"; };
 		84FA04FB1A25202A002BD5B5 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		84FA04FE1A2521AB002BD5B5 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		84FA05001A2521AB002BD5B5 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		84FA05021A2521AB002BD5B5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		84FA05071A252411002BD5B5 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		84FA050B1A25280A002BD5B5 /* CRRecognitionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRecognitionOperation.h; sourceTree = "<group>"; };
-		84FA050C1A25280A002BD5B5 /* CRRecognitionOperation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRRecognitionOperation.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,26 +142,67 @@
 			path = ImageFormattingView;
 			sourceTree = "<group>";
 		};
-		575970B41A24C2590071D14F /* Logger */ = {
+		5753929C1AA86E5400403445 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				575970CD1A24E9670071D14F /* CRLogger.h */,
-				575970B51A24C2850071D14F /* Logger.swift */,
+				5753929D1AA86E5400403445 /* Camera */,
+				5753929F1AA86E5400403445 /* Logger */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5753929D1AA86E5400403445 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				5753929E1AA86E5400403445 /* CameraCapture.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		5753929F1AA86E5400403445 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				575392A01AA86E5400403445 /* CRLogger.h */,
+				575392A11AA86E5400403445 /* Logger.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
 		};
-		575970C31A24E9030071D14F /* OCRWrapper */ = {
+		57D83D631AA8C2BD007F200C /* OCRWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				575970C41A24E9030071D14F /* CRCheckAPI.h */,
-				575970C51A24E9030071D14F /* CRCheckAPI.mm */,
-				84FA050B1A25280A002BD5B5 /* CRRecognitionOperation.h */,
-				84FA050C1A25280A002BD5B5 /* CRRecognitionOperation.mm */,
-				84D8A82D1AA7BF79006C5AD1 /* CheckResult */,
-				84FA04ED1A251EE0002BD5B5 /* Utils */,
+				57D83D641AA8C2BD007F200C /* CheckResult */,
+				57D83D691AA8C2BD007F200C /* CRCheckAPI.h */,
+				57D83D6A1AA8C2BD007F200C /* CRCheckAPI.mm */,
+				57D83D6B1AA8C2BD007F200C /* CRRecognitionOperation.h */,
+				57D83D6C1AA8C2BD007F200C /* CRRecognitionOperation.mm */,
+				57D83D6D1AA8C2BD007F200C /* Utils */,
 			);
 			path = OCRWrapper;
+			sourceTree = "<group>";
+		};
+		57D83D641AA8C2BD007F200C /* CheckResult */ = {
+			isa = PBXGroup;
+			children = (
+				57D83D651AA8C2BD007F200C /* CRCheckResult.h */,
+				57D83D661AA8C2BD007F200C /* CRCheckResult.m */,
+				57D83D671AA8C2BD007F200C /* CRCheckResultComponent.h */,
+				57D83D681AA8C2BD007F200C /* CRCheckResultComponent.m */,
+			);
+			path = CheckResult;
+			sourceTree = "<group>";
+		};
+		57D83D6D1AA8C2BD007F200C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				57D83D6E1AA8C2BD007F200C /* NSString+CRFilePath.h */,
+				57D83D6F1AA8C2BD007F200C /* NSString+CRFilePath.m */,
+				57D83D701AA8C2BD007F200C /* UIImage+CRCheckImage.h */,
+				57D83D711AA8C2BD007F200C /* UIImage+CRCheckImage.mm */,
+				57D83D721AA8C2BD007F200C /* UIImage+CRFilters.h */,
+				57D83D731AA8C2BD007F200C /* UIImage+CRFilters.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		8446D1CF1A20E5DD00487D58 = {
@@ -185,12 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */,
-				575970B41A24C2590071D14F /* Logger */,
-				575970C31A24E9030071D14F /* OCRWrapper */,
-				84FA04EC1A251D7D002BD5B5 /* Model */,
-				8446D1FF1A20E63300487D58 /* Camera */,
+				57D83D631AA8C2BD007F200C /* OCRWrapper */,
 				84FA04E81A251D74002BD5B5 /* UI */,
-				84FA05121A253B5C002BD5B5 /* Utils */,
+				5753929C1AA86E5400403445 /* Utils */,
 				8446D1DD1A20E5DE00487D58 /* AppDelegate.swift */,
 				8446D1E31A20E5DE00487D58 /* Main.storyboard */,
 				8446D1E61A20E5DE00487D58 /* Images.xcassets */,
@@ -210,14 +250,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8446D1FF1A20E63300487D58 /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-				8446D2001A20E65600487D58 /* CameraCapture.swift */,
-			);
-			path = Camera;
-			sourceTree = "<group>";
-		};
 		844F3ED61A20EA3B001428AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,14 +258,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		84CFCFAD1A2A9989002DB34A /* View */ = {
+		84CFCFAD1A2A9989002DB34A /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				5751BCA31AA46A7A0091A8D7 /* Base */,
 				5751BCA61AA46CB10091A8D7 /* CameraView */,
 				5751BCAB1AA46D1A0091A8D7 /* ImageFormattingView */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84D1774F1A2A4D72002F275A /* 3rd party */ = {
@@ -252,17 +284,6 @@
 			path = NibDesignable;
 			sourceTree = "<group>";
 		};
-		84D8A82D1AA7BF79006C5AD1 /* CheckResult */ = {
-			isa = PBXGroup;
-			children = (
-				84D8A82E1AA7BF79006C5AD1 /* CRCheckResult.h */,
-				84D8A82F1AA7BF79006C5AD1 /* CRCheckResult.m */,
-				84D8A8301AA7BF79006C5AD1 /* CRCheckResultComponent.h */,
-				84D8A8311AA7BF79006C5AD1 /* CRCheckResultComponent.m */,
-			);
-			path = CheckResult;
-			sourceTree = "<group>";
-		};
 		84DD8E701A215B9500C9CEC0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,7 +295,7 @@
 		84FA04E81A251D74002BD5B5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				84CFCFAD1A2A9989002DB34A /* View */,
+				84CFCFAD1A2A9989002DB34A /* Views */,
 				84FA04E91A251D74002BD5B5 /* Cells */,
 				84FA04EA1A251D74002BD5B5 /* ViewControllers */,
 			);
@@ -300,26 +321,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		84FA04EC1A251D7D002BD5B5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84FA04ED1A251EE0002BD5B5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				84FA04EE1A251EF3002BD5B5 /* NSString+CRFilePath.h */,
-				84FA04EF1A251EF3002BD5B5 /* NSString+CRFilePath.m */,
-				84FA04F01A251EF3002BD5B5 /* UIImage+CRCheckImage.h */,
-				84FA04F11A251EF3002BD5B5 /* UIImage+CRCheckImage.mm */,
-				57FA37401AA734FB002FCD94 /* UIImage+CRFilters.h */,
-				57FA37411AA734FB002FCD94 /* UIImage+CRFilters.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		84FA04FA1A252023002BD5B5 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +340,7 @@
 		84FA04FF1A2521AB002BD5B5 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
+				57D83D611AA8C29A007F200C /* CheckResultImageProcessor.swift */,
 				84FA05001A2521AB002BD5B5 /* ScanViewController.swift */,
 				84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */,
 				84CFCFB21A2B4012002DB34A /* ResultViewController.swift */,
@@ -360,13 +362,6 @@
 				84FA05071A252411002BD5B5 /* TabBarController.swift */,
 			);
 			path = TabController;
-			sourceTree = "<group>";
-		};
-		84FA05121A253B5C002BD5B5 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +396,7 @@
 				TargetAttributes = {
 					8446D1D71A20E5DD00487D58 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = G5EG5T3U3L;
 					};
 				};
 			};
@@ -459,27 +455,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57FA37421AA734FB002FCD94 /* UIImage+CRFilters.m in Sources */,
-				575970CA1A24E9030071D14F /* CRCheckAPI.mm in Sources */,
 				8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */,
+				57D83D7A1AA8C2BD007F200C /* UIImage+CRFilters.m in Sources */,
+				57D83D621AA8C29A007F200C /* CheckResultImageProcessor.swift in Sources */,
 				84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */,
 				5751BCA91AA46CB10091A8D7 /* CameraView.swift in Sources */,
 				84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */,
 				84FA05041A2521AB002BD5B5 /* ScanViewController.swift in Sources */,
 				84EA17741AA67BF600B5EB50 /* BlackoutView.swift in Sources */,
-				84FA050D1A25280A002BD5B5 /* CRRecognitionOperation.mm in Sources */,
-				575970B61A24C2850071D14F /* Logger.swift in Sources */,
 				84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */,
-				84D8A8321AA7BF79006C5AD1 /* CRCheckResult.m in Sources */,
+				575392A21AA86E5400403445 /* CameraCapture.swift in Sources */,
 				84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */,
+				57D83D761AA8C2BD007F200C /* CRCheckAPI.mm in Sources */,
 				5751BCA51AA46A7A0091A8D7 /* MemoryObservableView.swift in Sources */,
+				57D83D771AA8C2BD007F200C /* CRRecognitionOperation.mm in Sources */,
+				575392A31AA86E5400403445 /* Logger.swift in Sources */,
 				5751BCAD1AA46D330091A8D7 /* ImageFormattingView.swift in Sources */,
-				84D8A8331AA7BF79006C5AD1 /* CRCheckResultComponent.m in Sources */,
-				8446D2011A20E65600487D58 /* CameraCapture.swift in Sources */,
-				84FA04F31A251EF3002BD5B5 /* UIImage+CRCheckImage.mm in Sources */,
+				57D83D791AA8C2BD007F200C /* UIImage+CRCheckImage.mm in Sources */,
 				84FA05051A2521AB002BD5B5 /* SettingsViewController.swift in Sources */,
+				57D83D781AA8C2BD007F200C /* NSString+CRFilePath.m in Sources */,
+				57D83D741AA8C2BD007F200C /* CRCheckResult.m in Sources */,
 				84FA05081A252411002BD5B5 /* TabBarController.swift in Sources */,
-				84FA04F21A251EF3002BD5B5 /* NSString+CRFilePath.m in Sources */,
+				57D83D751AA8C2BD007F200C /* CRCheckResultComponent.m in Sources */,
 				84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

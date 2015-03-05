@@ -57,7 +57,7 @@
     
     if(self.isCancelled) return;
     
-    _ocrResult = _ocrAPI->Recognize(_ocrImage);
+    _ocrResult = _ocrAPI->Recognize(_ocrImage, CheckOCR::CT_WORD);
     if(!_ocrResult->IsSuccess()) {
         DLog(@"OCR has failed with status %d", _ocrResult->GetStatus());
         //TODO: think about error handling

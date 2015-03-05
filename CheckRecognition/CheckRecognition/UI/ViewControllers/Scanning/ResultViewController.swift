@@ -43,13 +43,21 @@ class ResultViewController: BaseViewController {
         CRCheckAPI.sharedAPI().recognizeImage(self.image!, withCallback: { [weak self] (result: CRCheckResult!) -> Void in
             if let strong = self {
                 if result.components.count > 0 {
-                    let component = result.components[0] as CRCheckResultComponent
-                    strong.text = component.text
+                    strong.handleResult(result)
                 }
                 else {
                     strong.text = nil
                 }
             }
         })
+    }
+    
+    private func handleResult(result: CRCheckResult) {
+        let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: result)
+        resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
+            if let strong = self {
+                strong.imageView.image = image
+            }
+        }
     }
 }
