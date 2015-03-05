@@ -14,7 +14,6 @@
 		5751BCAF1AA46D7A0091A8D7 /* ImageFormattingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5751BCAE1AA46D7A0091A8D7 /* ImageFormattingView.xib */; };
 		575392A21AA86E5400403445 /* CameraCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5753929E1AA86E5400403445 /* CameraCapture.swift */; };
 		575392A31AA86E5400403445 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575392A11AA86E5400403445 /* Logger.swift */; };
-		57D83D621AA8C29A007F200C /* CheckResultImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D611AA8C29A007F200C /* CheckResultImageProcessor.swift */; };
 		57D83D741AA8C2BD007F200C /* CRCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D661AA8C2BD007F200C /* CRCheckResult.m */; };
 		57D83D751AA8C2BD007F200C /* CRCheckResultComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D681AA8C2BD007F200C /* CRCheckResultComponent.m */; };
 		57D83D761AA8C2BD007F200C /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57D83D6A1AA8C2BD007F200C /* CRCheckAPI.mm */; };
@@ -32,6 +31,7 @@
 		84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */; };
 		84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB21A2B4012002DB34A /* ResultViewController.swift */; };
 		84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D177511A2A4D73002F275A /* NibDesignableView.swift */; };
+		84E1471A1AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E147191AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift */; };
 		84EA17741AA67BF600B5EB50 /* BlackoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA17731AA67BF600B5EB50 /* BlackoutView.swift */; };
 		84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04FB1A25202A002BD5B5 /* BaseViewController.swift */; };
 		84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04FE1A2521AB002BD5B5 /* HistoryViewController.swift */; };
@@ -66,7 +66,6 @@
 		5753929E1AA86E5400403445 /* CameraCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraCapture.swift; sourceTree = "<group>"; };
 		575392A01AA86E5400403445 /* CRLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLogger.h; sourceTree = "<group>"; };
 		575392A11AA86E5400403445 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		57D83D611AA8C29A007F200C /* CheckResultImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResultImageProcessor.swift; sourceTree = "<group>"; };
 		57D83D651AA8C2BD007F200C /* CRCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResult.h; sourceTree = "<group>"; };
 		57D83D661AA8C2BD007F200C /* CRCheckResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResult.m; sourceTree = "<group>"; };
 		57D83D671AA8C2BD007F200C /* CRCheckResultComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResultComponent.h; sourceTree = "<group>"; };
@@ -94,6 +93,7 @@
 		84D177511A2A4D73002F275A /* NibDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignableView.swift; sourceTree = "<group>"; };
 		84DD8E6F1A215B9500C9CEC0 /* CheckOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CheckOCR.xcodeproj; path = ../CheckOCR/CheckOCR.xcodeproj; sourceTree = "<group>"; };
 		84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckRecognition-Bridging-Header.h"; sourceTree = "<group>"; };
+		84E147191AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResultImageProcessor.swift; sourceTree = "<group>"; };
 		84EA17731AA67BF600B5EB50 /* BlackoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackoutView.swift; sourceTree = "<group>"; };
 		84FA04FB1A25202A002BD5B5 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		84FA04FE1A2521AB002BD5B5 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 		5753929C1AA86E5400403445 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				84E147181AA8D9EA007F0FE7 /* CheckResultImage */,
 				5753929D1AA86E5400403445 /* Camera */,
 				5753929F1AA86E5400403445 /* Logger */,
 			);
@@ -292,6 +293,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		84E147181AA8D9EA007F0FE7 /* CheckResultImage */ = {
+			isa = PBXGroup;
+			children = (
+				84E147191AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift */,
+			);
+			path = CheckResultImage;
+			sourceTree = "<group>";
+		};
 		84FA04E81A251D74002BD5B5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +349,6 @@
 		84FA04FF1A2521AB002BD5B5 /* Scanning */ = {
 			isa = PBXGroup;
 			children = (
-				57D83D611AA8C29A007F200C /* CheckResultImageProcessor.swift */,
 				84FA05001A2521AB002BD5B5 /* ScanViewController.swift */,
 				84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */,
 				84CFCFB21A2B4012002DB34A /* ResultViewController.swift */,
@@ -457,7 +465,6 @@
 			files = (
 				8446D1DE1A20E5DE00487D58 /* AppDelegate.swift in Sources */,
 				57D83D7A1AA8C2BD007F200C /* UIImage+CRFilters.m in Sources */,
-				57D83D621AA8C29A007F200C /* CheckResultImageProcessor.swift in Sources */,
 				84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */,
 				5751BCA91AA46CB10091A8D7 /* CameraView.swift in Sources */,
 				84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */,
@@ -474,6 +481,7 @@
 				57D83D791AA8C2BD007F200C /* UIImage+CRCheckImage.mm in Sources */,
 				84FA05051A2521AB002BD5B5 /* SettingsViewController.swift in Sources */,
 				57D83D781AA8C2BD007F200C /* NSString+CRFilePath.m in Sources */,
+				84E1471A1AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift in Sources */,
 				57D83D741AA8C2BD007F200C /* CRCheckResult.m in Sources */,
 				84FA05081A252411002BD5B5 /* TabBarController.swift in Sources */,
 				57D83D751AA8C2BD007F200C /* CRCheckResultComponent.m in Sources */,
