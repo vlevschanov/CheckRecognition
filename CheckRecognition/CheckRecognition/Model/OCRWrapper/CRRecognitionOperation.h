@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@class CRCheckResult;
+@class CheckResult;
 
 @interface CRRecognitionOperation : NSOperation
 
-@property (nonatomic, readonly) CRCheckResult *result;
+@property (nonatomic, readonly) CheckResult *result;
 
 - (instancetype)initWithImage:(UIImage *)image dataPath:(NSString *)dataPath andLanguage:(NSString *)language;
 

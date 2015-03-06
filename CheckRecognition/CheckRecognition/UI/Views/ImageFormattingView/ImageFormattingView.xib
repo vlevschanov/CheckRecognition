@@ -33,6 +33,7 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="EL0-Mj-ehK">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    <gestureRecognizers/>
                                 </imageView>
                             </subviews>
                             <constraints>
@@ -53,6 +54,7 @@
                     </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="lt2-OS-AOF"/>
+                        <outletCollection property="gestureRecognizers" destination="nAw-8z-QHj" appends="YES" id="gU2-Mt-5Cl"/>
                     </connections>
                 </scrollView>
                 <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-Fo-IWq" customClass="BlackoutView" customModule="CheckRecognition" customModuleProvider="target">
@@ -72,6 +74,7 @@
                     </connections>
                 </view>
             </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="uMd-Yb-7Ov" firstAttribute="top" secondItem="cSE-EI-MvJ" secondAttribute="top" priority="750" constant="20" id="3sr-49-eO1"/>
                 <constraint firstAttribute="trailing" secondItem="uMd-Yb-7Ov" secondAttribute="trailing" priority="750" constant="20" id="4j2-gi-Ed7"/>
@@ -94,5 +97,10 @@
                 <outlet property="delegate" destination="-1" id="Ctz-Ie-J16"/>
             </connections>
         </panGestureRecognizer>
+        <tapGestureRecognizer id="nAw-8z-QHj">
+            <connections>
+                <action selector="didRecognizeTapGesture:" destination="-1" id="IyV-r1-Eys"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

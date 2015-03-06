@@ -10,8 +10,6 @@
 #import "CRLogger.h"
 
 #import "UIImage+CRCheckImage.h"
-#import "CRCheckResult.h"
-#import "CRCheckResultComponent.h"
 
 #include <CheckOCR/CheckOCR.h>
 
@@ -19,7 +17,7 @@
     UIImage *_srcImage;
     NSString *_dataPath;
     NSString *_language;
-    CRCheckResult *_result;
+    CheckResult *_result;
     
     CheckOCR::CheckAPI *_ocrAPI;
     CheckOCR::CheckImage *_ocrImage;
@@ -78,16 +76,16 @@
         CheckOCR::ComponentRect compRect = component.GetRect();
         CGRect rect = CGRectMake(compRect.x, compRect.y, compRect.width, compRect.height);
         
-        CRCheckResultComponent *comp = [[CRCheckResultComponent alloc] initWithText:text rect:rect confidence:component.GetConfidence()];
+        CheckResultComponent *comp = [[CheckResultComponent alloc] initWithText:text rect:rect confidence:component.GetConfidence()];
         [componentsArray addObject:comp];
     }
     
-    _result = [[CRCheckResult alloc] initWithComponents:componentsArray];
+    _result = [[CheckResult alloc] initWithComponents:componentsArray];
     
     ILog(@"did recognize with result: %@", _result);
 }
 
-- (CRCheckResult *)result {
+- (CheckResult *)result {
     return _result;
 }
 

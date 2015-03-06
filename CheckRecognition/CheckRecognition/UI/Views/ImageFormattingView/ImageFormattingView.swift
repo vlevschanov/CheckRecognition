@@ -9,6 +9,10 @@
 import UIKit
 import AVFoundation
 
+@objc protocol ImageFormattingViewDelegate {
+    optional func formattingViewDidTapImage(view: ImageFormattingView, point: CGPoint)
+}
+
 class ImageFormattingView: MemoryObservableView {
 
     @IBOutlet private weak var scrollViewContent: UIView!
@@ -25,7 +29,11 @@ class ImageFormattingView: MemoryObservableView {
     @IBOutlet weak var cropViewLeft: NSLayoutConstraint!
     @IBOutlet weak var cropViewRight: NSLayoutConstraint!
     
+    @IBInspectable var cropViewIsShown : Bool = true
+    
     private let IMAGE_MAXIMUM_SCALE : CGFloat = 5.0
+    
+    var delegate : ImageFormattingViewDelegate?
     
     var image : UIImage? {
         didSet {
@@ -38,8 +46,16 @@ class ImageFormattingView: MemoryObservableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cropView.layer.borderColor = UIColor.yellowColor().CGColor
-        self.cropView.layer.borderWidth = 1.0
+        if self.cropViewIsShown {
+            cropView.layer.borderColor = UIColor.yellowColor().CGColor
+            self.cropView.layer.borderWidth = 1.0
+            self.cropView.hidden = false
+            self.blackoutView.hidden = false
+        }
+        else {
+            self.cropView.hidden = true
+            self.blackoutView.hidden = true
+        }
     }
     
     // MARK: Layout
@@ -90,23 +106,29 @@ class ImageFormattingView: MemoryObservableView {
     private var touchedCorner : FormattingFrameCorner?
     private var previousTouch : CGPoint = CGPointZero
     
-    private func convertedCropViewRect() -> CGRect {
-        let rect = self.convertRect(self.cropView.frame, toView: self.scrollViewContent)
-        return CGRectApplyAffineTransform(rect, CGAffineTransformMakeScale(self.image!.scale, self.image!.scale))
+    private func convertRectToContentView(rect: CGRect) -> CGRect {
+        let _rect = self.convertRect(rect, toView: self.scrollViewContent)
+        return CGRectApplyAffineTransform(_rect, CGAffineTransformMakeScale(self.image!.scale, self.image!.scale))
     }
     
-    private func convertedScrollContentRect() -> CGRect {
-        return self.convertRect(self.scrollViewContent.frame, toView: self)
+    private func convertPointToContentView(point: CGPoint) -> CGPoint {
+        let _point = self.convertPoint(point, toView: self.scrollViewContent)
+        return CGPointApplyAffineTransform(_point, CGAffineTransformMakeScale(self.image!.scale, self.image!.scale))
+    }
+    
+    private func scrollViewContentOffset() -> (x: CGFloat, y: CGFloat) {
+        let x = (self.frame.width - self.scrollViewContent.frame.width) / 2.0
+        let y = (self.frame.height - self.scrollViewContent.frame.height) / 2.0
+        return (x, y)
     }
     
     private func layoutCropView() {
-        let x = (self.frame.width - self.scrollViewContent.frame.width) / 2.0
-        let y = (self.frame.height - self.scrollViewContent.frame.height) / 2.0
+        let offset = scrollViewContentOffset()
         
-        self.cropViewTop.constant = fmax(fmax(self.cropViewTop.constant, y), 0.0)
-        self.cropViewLeft.constant = fmax(fmax(self.cropViewLeft.constant, x), 0.0)
-        self.cropViewRight.constant = fmax(fmax(self.cropViewRight.constant, x), 0.0)
-        self.cropViewBottom.constant = fmax(fmax(self.cropViewBottom.constant, y), 0.0)
+        self.cropViewTop.constant = fmax(fmax(self.cropViewTop.constant, offset.y), 0.0)
+        self.cropViewLeft.constant = fmax(fmax(self.cropViewLeft.constant, offset.x), 0.0)
+        self.cropViewRight.constant = fmax(fmax(self.cropViewRight.constant, offset.x), 0.0)
+        self.cropViewBottom.constant = fmax(fmax(self.cropViewBottom.constant, offset.y), 0.0)
     }
     
     func getFormattedImage() -> UIImage? {
@@ -126,7 +148,7 @@ class ImageFormattingView: MemoryObservableView {
         
         UIGraphicsEndImageContext();
         
-        let rect = convertedCropViewRect()
+        let rect = convertRectToContentView(self.cropView.frame)
         
         let croppedCGImage = CGImageCreateWithImageInRect(img.CGImage, rect)
         let croppedImage = UIImage(CGImage: croppedCGImage, scale: imgScale, orientation: img.imageOrientation)
@@ -185,6 +207,19 @@ class ImageFormattingView: MemoryObservableView {
                 
             default:
                 self.frameDragging = false
+            }
+        }
+    }
+    
+    @IBAction func didRecognizeTapGesture(sender: UITapGestureRecognizer) {
+        if sender.view? == self.scrollView {
+            let touch = sender.locationInView(self)
+            let offset = scrollViewContentOffset()
+            let contentRect = CGRectInset(self.bounds, offset.x, offset.y)
+            
+            if CGRectContainsPoint(contentRect, touch) {
+                let point = convertPointToContentView(touch)
+                self.delegate?.formattingViewDidTapImage?(self, point: point)
             }
         }
     }

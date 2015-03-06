@@ -10,11 +10,11 @@ import Foundation
 
 class CheckResultImageProcessor: NSObject {
     
-    private let image : UIImage
-    private let ocrResult : CRCheckResult
+    private let image: UIImage
+    private let ocrResult: CheckResult
 
     
-    init(image: UIImage, ocrResult: CRCheckResult) {
+    init(image: UIImage, ocrResult: CheckResult) {
         
         self.image = image
         self.ocrResult = ocrResult
@@ -22,7 +22,7 @@ class CheckResultImageProcessor: NSObject {
         super.init()
     }
     
-    func generateCheckResultImage(completion: ((image : UIImage!) -> Void)!) {
+    func generateCheckResultImage(completion: ((image: UIImage!) -> Void)!) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
             let image = self.dynamicType.imageWithResults(self.image, result: self.ocrResult)
@@ -33,17 +33,18 @@ class CheckResultImageProcessor: NSObject {
         })
     }
     
-    private class func imageWithResults(image: UIImage, result: CRCheckResult) -> UIImage {
+    private class func imageWithResults(image: UIImage, result: CheckResult) -> UIImage {
+        Logger.debug("start");
         UIGraphicsBeginImageContextWithOptions(image.size, true,  image.scale)
         
         image.drawInRect(CGRectMake(0.0, 0.0, image.size.width, image.size.height))
         
-        let filterCharSet = NSCharacterSet.newlineCharacterSet()
+        
         
         var count = 0
         
-        for component in result.components as [CRCheckResultComponent]  {
-            var text : NSString = ((component.text as NSString).componentsSeparatedByCharactersInSet(filterCharSet) as NSArray).componentsJoinedByString("")
+        for component in result.components {
+            var text = component.getCleanText()
             
             if text.length == 0 {
                 continue
@@ -51,7 +52,12 @@ class CheckResultImageProcessor: NSObject {
             
             let rect = component.rect
             
-            UIColor.whiteColor().colorWithAlphaComponent(0.7).setFill()
+            if component.selected {
+                UIColor(red: 51.0/255.0, green: 153.0/255.0, blue: 204.0/255.0, alpha: 0.7).setFill()
+            }
+            else {
+                UIColor.whiteColor().colorWithAlphaComponent(0.7).setFill()
+            }
             CGContextFillRect(UIGraphicsGetCurrentContext(), component.rect)
             
             let font = fontForText(text, rect: rect)
@@ -68,11 +74,11 @@ class CheckResultImageProcessor: NSObject {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext();
-        
+        Logger.debug("finish");
         return newImage
     }
     
-    private class func fontForText(text :NSString, rect :CGRect) -> UIFont {
+    private class func fontForText(text: NSString, rect: CGRect) -> UIFont {
         let font = UIFont.systemFontOfSize(10.0)
         let size = text.sizeWithAttributes([NSFontAttributeName : font])
         let scale = scaleToAspectFit(size, dest: rect.size, padding: 0.0)

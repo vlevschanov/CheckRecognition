@@ -10,53 +10,65 @@ import UIKit
 
 class ResultViewController: BaseViewController {
     
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: ImageFormattingView!
     
     var image : UIImage?
-    var text : String? {
-        didSet {
-            if text? == nil || text!.isEmpty {
-                text = "No results"
-            }
-            self.textView.text = text
-            if self.isAppeared && self.textView.hidden {
-                self.textView.hidden = false
-                self.textView.alpha = 0.0
-                UIView.animateWithDuration(0.3, animations: { () -> Void in
-                    self.textView.alpha = 1.0
-                    self.imageView.alpha = 0.0
-                }, completion: { (Bool) -> Void in
-                    self.imageView.hidden = true
-                })
-            }
-        }
-    }
+    var resultController : CheckResultController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.imageView.delegate = self
+        self.navigationItem.title = ""
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.imageView.image = image
     }
     
     @IBAction func didTappedScanButton(sender: UIBarButtonItem) {
-        CRCheckAPI.sharedAPI().recognizeImage(self.image!, withCallback: { [weak self] (result: CRCheckResult!) -> Void in
+        let progress = MBProgressHUD.showHUDAddedTo(self.view.window, animated: true)
+        progress.labelText = "Scanning..."
+        progress.detailsLabelText = "Please wait"
+        CRCheckAPI.sharedAPI().recognizeImage(self.image!, withCallback: { [weak self] (result: CheckResult!) -> Void in
             if let strong = self {
                 if result.components.count > 0 {
                     strong.handleResult(result)
                 }
-                else {
-                    strong.text = nil
-                }
+                progress.hide(true)
             }
         })
     }
     
-    private func handleResult(result: CRCheckResult) {
+    private func handleResult(result: CheckResult) {
+        self.resultController = CheckResultController(checkResult: result)
         let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: result)
         resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
             if let strong = self {
                 strong.imageView.image = image
+            }
+        }
+    }
+}
+
+extension ResultViewController : ImageFormattingViewDelegate {
+    
+    func formattingViewDidTapImage(view: ImageFormattingView, point: CGPoint) {
+        if self.resultController!.moveToComponent(point) {
+            self.resultController!.changeCurrentComponentSelection()
+            let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: self.resultController!.checkResult)
+            resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
+                if let strong = self {
+                    strong.imageView.image = image
+                    if let sum = strong.resultController?.getSumOfSelectedComponents() {
+                        strong.navigationItem.title! = sum.stringValue
+                    }
+                    else {
+                        strong.navigationItem.title! = ""
+                    }
+                    
+                }
             }
         }
     }

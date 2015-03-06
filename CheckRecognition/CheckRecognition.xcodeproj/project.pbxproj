@@ -24,13 +24,15 @@
 		84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */; };
 		84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CFCFB21A2B4012002DB34A /* ResultViewController.swift */; };
 		84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D177511A2A4D73002F275A /* NibDesignableView.swift */; };
-		84D8D3F31AA8E09B00AAD964 /* CRCheckResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3E51AA8E09B00AAD964 /* CRCheckResult.m */; };
-		84D8D3F41AA8E09B00AAD964 /* CRCheckResultComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3E71AA8E09B00AAD964 /* CRCheckResultComponent.m */; };
 		84D8D3F51AA8E09B00AAD964 /* CRCheckAPI.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3E91AA8E09B00AAD964 /* CRCheckAPI.mm */; };
 		84D8D3F61AA8E09B00AAD964 /* CRRecognitionOperation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3EB1AA8E09B00AAD964 /* CRRecognitionOperation.mm */; };
 		84D8D3F71AA8E09B00AAD964 /* NSString+CRFilePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3EE1AA8E09B00AAD964 /* NSString+CRFilePath.m */; };
 		84D8D3F81AA8E09B00AAD964 /* UIImage+CRCheckImage.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3F01AA8E09B00AAD964 /* UIImage+CRCheckImage.mm */; };
 		84D8D3F91AA8E09B00AAD964 /* UIImage+CRFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3F21AA8E09B00AAD964 /* UIImage+CRFilters.m */; };
+		84D8D3FD1AA8F63A00AAD964 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D3FC1AA8F63A00AAD964 /* MBProgressHUD.m */; };
+		84D8D4091AA9104600AAD964 /* CheckResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D4061AA9104600AAD964 /* CheckResult.swift */; };
+		84D8D40A1AA9104600AAD964 /* CheckResultComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D4071AA9104600AAD964 /* CheckResultComponent.swift */; };
+		84D8D40B1AA9104600AAD964 /* CheckResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8D4081AA9104600AAD964 /* CheckResultController.swift */; };
 		84E1471A1AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E147191AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift */; };
 		84EA17741AA67BF600B5EB50 /* BlackoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EA17731AA67BF600B5EB50 /* BlackoutView.swift */; };
 		84FA04FC1A25202A002BD5B5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA04FB1A25202A002BD5B5 /* BaseViewController.swift */; };
@@ -77,10 +79,6 @@
 		84CFCFB01A2A9E48002DB34A /* PreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		84CFCFB21A2B4012002DB34A /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		84D177511A2A4D73002F275A /* NibDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignableView.swift; sourceTree = "<group>"; };
-		84D8D3E41AA8E09B00AAD964 /* CRCheckResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResult.h; sourceTree = "<group>"; };
-		84D8D3E51AA8E09B00AAD964 /* CRCheckResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResult.m; sourceTree = "<group>"; };
-		84D8D3E61AA8E09B00AAD964 /* CRCheckResultComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckResultComponent.h; sourceTree = "<group>"; };
-		84D8D3E71AA8E09B00AAD964 /* CRCheckResultComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRCheckResultComponent.m; sourceTree = "<group>"; };
 		84D8D3E81AA8E09B00AAD964 /* CRCheckAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRCheckAPI.h; sourceTree = "<group>"; };
 		84D8D3E91AA8E09B00AAD964 /* CRCheckAPI.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CRCheckAPI.mm; sourceTree = "<group>"; };
 		84D8D3EA1AA8E09B00AAD964 /* CRRecognitionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRecognitionOperation.h; sourceTree = "<group>"; };
@@ -91,6 +89,11 @@
 		84D8D3F01AA8E09B00AAD964 /* UIImage+CRCheckImage.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+CRCheckImage.mm"; sourceTree = "<group>"; };
 		84D8D3F11AA8E09B00AAD964 /* UIImage+CRFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CRFilters.h"; sourceTree = "<group>"; };
 		84D8D3F21AA8E09B00AAD964 /* UIImage+CRFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CRFilters.m"; sourceTree = "<group>"; };
+		84D8D3FB1AA8F63A00AAD964 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		84D8D3FC1AA8F63A00AAD964 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		84D8D4061AA9104600AAD964 /* CheckResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResult.swift; sourceTree = "<group>"; };
+		84D8D4071AA9104600AAD964 /* CheckResultComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResultComponent.swift; sourceTree = "<group>"; };
+		84D8D4081AA9104600AAD964 /* CheckResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResultController.swift; sourceTree = "<group>"; };
 		84DD8E6F1A215B9500C9CEC0 /* CheckOCR.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CheckOCR.xcodeproj; path = ../CheckOCR/CheckOCR.xcodeproj; sourceTree = "<group>"; };
 		84DD8E791A215D8600C9CEC0 /* CheckRecognition-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CheckRecognition-Bridging-Header.h"; sourceTree = "<group>"; };
 		84E147191AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckResultImageProcessor.swift; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 		84D1774F1A2A4D72002F275A /* 3rd party */ = {
 			isa = PBXGroup;
 			children = (
+				84D8D3FA1AA8F63A00AAD964 /* MBProgressHUD */,
 				84D177501A2A4D73002F275A /* NibDesignable */,
 			);
 			path = "3rd party";
@@ -251,6 +255,7 @@
 		84D8D3E11AA8E09B00AAD964 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D8D4051AA9104600AAD964 /* CheckResult */,
 				84D8D3E21AA8E09B00AAD964 /* OCRWrapper */,
 			);
 			path = Model;
@@ -259,7 +264,6 @@
 		84D8D3E21AA8E09B00AAD964 /* OCRWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				84D8D3E31AA8E09B00AAD964 /* CheckResult */,
 				84D8D3E81AA8E09B00AAD964 /* CRCheckAPI.h */,
 				84D8D3E91AA8E09B00AAD964 /* CRCheckAPI.mm */,
 				84D8D3EA1AA8E09B00AAD964 /* CRRecognitionOperation.h */,
@@ -267,17 +271,6 @@
 				84D8D3EC1AA8E09B00AAD964 /* Utils */,
 			);
 			path = OCRWrapper;
-			sourceTree = "<group>";
-		};
-		84D8D3E31AA8E09B00AAD964 /* CheckResult */ = {
-			isa = PBXGroup;
-			children = (
-				84D8D3E41AA8E09B00AAD964 /* CRCheckResult.h */,
-				84D8D3E51AA8E09B00AAD964 /* CRCheckResult.m */,
-				84D8D3E61AA8E09B00AAD964 /* CRCheckResultComponent.h */,
-				84D8D3E71AA8E09B00AAD964 /* CRCheckResultComponent.m */,
-			);
-			path = CheckResult;
 			sourceTree = "<group>";
 		};
 		84D8D3EC1AA8E09B00AAD964 /* Utils */ = {
@@ -291,6 +284,25 @@
 				84D8D3F21AA8E09B00AAD964 /* UIImage+CRFilters.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		84D8D3FA1AA8F63A00AAD964 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D3FB1AA8F63A00AAD964 /* MBProgressHUD.h */,
+				84D8D3FC1AA8F63A00AAD964 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		84D8D4051AA9104600AAD964 /* CheckResult */ = {
+			isa = PBXGroup;
+			children = (
+				84D8D4081AA9104600AAD964 /* CheckResultController.swift */,
+				84D8D4061AA9104600AAD964 /* CheckResult.swift */,
+				84D8D4071AA9104600AAD964 /* CheckResultComponent.swift */,
+			);
+			path = CheckResult;
 			sourceTree = "<group>";
 		};
 		84DD8E701A215B9500C9CEC0 /* Products */ = {
@@ -477,10 +489,13 @@
 				84FA05031A2521AB002BD5B5 /* HistoryViewController.swift in Sources */,
 				84FA05041A2521AB002BD5B5 /* ScanViewController.swift in Sources */,
 				84EA17741AA67BF600B5EB50 /* BlackoutView.swift in Sources */,
+				84D8D40A1AA9104600AAD964 /* CheckResultComponent.swift in Sources */,
+				84D8D3FD1AA8F63A00AAD964 /* MBProgressHUD.m in Sources */,
 				84CFCFB11A2A9E48002DB34A /* PreviewViewController.swift in Sources */,
 				575392A21AA86E5400403445 /* CameraCapture.swift in Sources */,
 				84CFCFB31A2B4012002DB34A /* ResultViewController.swift in Sources */,
 				5751BCA51AA46A7A0091A8D7 /* MemoryObservableView.swift in Sources */,
+				84D8D40B1AA9104600AAD964 /* CheckResultController.swift in Sources */,
 				84D8D3F51AA8E09B00AAD964 /* CRCheckAPI.mm in Sources */,
 				575392A31AA86E5400403445 /* Logger.swift in Sources */,
 				84D8D3F61AA8E09B00AAD964 /* CRRecognitionOperation.mm in Sources */,
@@ -488,10 +503,9 @@
 				84FA05051A2521AB002BD5B5 /* SettingsViewController.swift in Sources */,
 				84D8D3F81AA8E09B00AAD964 /* UIImage+CRCheckImage.mm in Sources */,
 				84E1471A1AA8D9EA007F0FE7 /* CheckResultImageProcessor.swift in Sources */,
+				84D8D4091AA9104600AAD964 /* CheckResult.swift in Sources */,
 				84D8D3F71AA8E09B00AAD964 /* NSString+CRFilePath.m in Sources */,
-				84D8D3F31AA8E09B00AAD964 /* CRCheckResult.m in Sources */,
 				84FA05081A252411002BD5B5 /* TabBarController.swift in Sources */,
-				84D8D3F41AA8E09B00AAD964 /* CRCheckResultComponent.m in Sources */,
 				84D177521A2A4D73002F275A /* NibDesignableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,5 +4,4 @@
 
 #import "CRCheckAPI.h"
 #import "UIImage+CRFilters.h"
-#import "CRCheckResult.h"
-#import "CRCheckResultComponent.h"
+#import "MBProgressHUD.h"
