@@ -48,8 +48,10 @@ class CheckResultController: NSObject {
     func getSumOfSelectedComponents() -> NSNumber {
         var sum = NSDecimalNumber.zero()
         for component in selectedComponents() {
-            if let number = component.digitValue {
-                sum = sum.decimalNumberByAdding(number)
+            if component.isDigit() {
+                if let number = component.digitValue? {
+                    sum = sum.decimalNumberByAdding(number)
+                }
             }
         }
         return sum
