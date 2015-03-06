@@ -53,7 +53,7 @@ class CheckResultImageProcessor: NSObject {
             let rect = component.rect
             
             if component.selected {
-                UIColor(red: 51.0/255.0, green: 153.0/255.0, blue: 204.0/255.0, alpha: 0.7).setFill()
+                UIColor(red: 0.0/255.0, green: 153.0/255.0, blue: 51.0/255.0, alpha: 0.7).setFill()
             }
             else {
                 UIColor.whiteColor().colorWithAlphaComponent(0.7).setFill()

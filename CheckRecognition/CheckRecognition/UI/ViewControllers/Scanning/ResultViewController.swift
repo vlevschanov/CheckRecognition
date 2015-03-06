@@ -19,6 +19,7 @@ class ResultViewController: BaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.imageView.delegate = self
+        self.imageView.resetOnImageChange = false
         self.navigationItem.title = ""
     }
     
