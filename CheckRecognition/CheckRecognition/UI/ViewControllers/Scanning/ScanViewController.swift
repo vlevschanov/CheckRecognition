@@ -38,7 +38,7 @@ class ScanViewController: BaseViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case SegueID.PREVIEW_SEGUE:
-            let vc = segue.destinationViewController as PreviewViewController
+            let vc = segue.destinationViewController as! PreviewViewController
             vc.photoImage = self.scanImage
         default:
             break

@@ -13,7 +13,7 @@ class CheckResult: NSObject {
     let components: [CheckResultComponent]
     
     init(components: [AnyObject]) {
-        self.components = components as [CheckResultComponent] //TODO: check if this line is safe
+        self.components = components as! [CheckResultComponent] //TODO: check if this line is safe
         super.init()
     }
 }

@@ -45,7 +45,7 @@ class ImageFormattingView: MemoryObservableView {
     
     var image : UIImage? {
         didSet {
-            if image? != nil {
+            if image != nil {
                 self.imageView.image = self.image
                 setupContent()
             }
@@ -160,7 +160,7 @@ class ImageFormattingView: MemoryObservableView {
     }
     
     func getFormattedImage() -> UIImage? {
-        if self.image? == nil {
+        if self.image == nil {
             return nil
         }
         
@@ -187,7 +187,7 @@ class ImageFormattingView: MemoryObservableView {
     // MARK: Actions
     
     @IBAction func didRecognizePanGesture(sender: UIPanGestureRecognizer) {
-        if sender.view? == self.cropView {
+        if sender.view == self.cropView {
             let touch = sender.locationInView(self)
             
             switch sender.state {
@@ -240,7 +240,7 @@ class ImageFormattingView: MemoryObservableView {
     }
     
     @IBAction func didRecognizeTapGesture(sender: UITapGestureRecognizer) {
-        if sender.view? == self.scrollView {
+        if sender.view == self.scrollView {
             let touch = sender.locationInView(self)
             let offset = scrollViewContentOffset()
             let contentRect = CGRectInset(self.bounds, offset.x, offset.y)

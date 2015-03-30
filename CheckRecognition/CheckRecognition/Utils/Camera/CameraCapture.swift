@@ -25,7 +25,7 @@ class CameraCapture {
     init?(sessionPresset: String, cameraPosition: AVCaptureDevicePosition) {
         
         let devices = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo);
-        for device in devices as [AVCaptureDevice] {
+        for device in devices as! [AVCaptureDevice] {
             if device.position == cameraPosition {
                 self.captureDevice = device
                 break;
@@ -99,7 +99,7 @@ class CameraCapture {
             self.stop()
         }
         
-        if previewLayer? == nil {
+        if previewLayer == nil {
             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
         }
@@ -137,7 +137,7 @@ class CameraCapture {
             return
         }
         
-        captureOutput.captureStillImageAsynchronouslyFromConnection(captureOutput.connections[0] as AVCaptureConnection, completionHandler: { (buffer: CMSampleBuffer!, error: NSError!) -> Void in
+        captureOutput.captureStillImageAsynchronouslyFromConnection(captureOutput.connections[0] as! AVCaptureConnection, completionHandler: { (buffer: CMSampleBuffer!, error: NSError!) -> Void in
             let data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
             let image = UIImage(data: data)
             handler(capturedImage: image, error: error)

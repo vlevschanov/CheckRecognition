@@ -21,7 +21,7 @@ class CameraView: MemoryObservableView {
     
     var delegate : CameraViewDelegate?
     
-    private let camera = CameraCapture(sessionPresset: AVCaptureSessionPresetHigh)?
+    private let camera = CameraCapture(sessionPresset: AVCaptureSessionPresetHigh)
     
     private var capturedImage : UIImage?
     

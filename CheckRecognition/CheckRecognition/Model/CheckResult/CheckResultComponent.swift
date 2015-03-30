@@ -43,7 +43,7 @@ class CheckResultComponent: NSObject {
     }
     
     func getCleanText() -> NSString {
-        if cleanText? == nil {
+        if cleanText == nil {
             cleanText = ((self.text as NSString).componentsSeparatedByCharactersInSet(NSCharacterSet.newlineCharacterSet()) as NSArray).componentsJoinedByString("")
         }
         return cleanText!

@@ -15,7 +15,7 @@ class BlackoutView: UIView {
     
     var clippingPath : UIBezierPath? {
         didSet {
-            if clippingPath? != nil {
+            if clippingPath != nil {
                 self.setNeedsDisplay()
             }
         }

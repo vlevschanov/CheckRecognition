@@ -49,7 +49,7 @@ class CheckResultController: NSObject {
         var sum = NSDecimalNumber.zero()
         for component in selectedComponents() {
             if component.isDigit() {
-                if let number = component.digitValue? {
+                if let number = component.digitValue {
                     sum = sum.decimalNumberByAdding(number)
                 }
             }

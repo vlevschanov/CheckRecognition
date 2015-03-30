@@ -43,7 +43,7 @@ class PreviewViewController: BaseViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case SegueID.RESULT_SEGUE:
-            let vc = segue.destinationViewController as ResultViewController
+            let vc = segue.destinationViewController as! ResultViewController
             //vc.text = recognizedText
             vc.image = self.photoImageFormattingView.getFormattedImage()
         default:
