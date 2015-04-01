@@ -14,9 +14,10 @@
 
 class Pix;
 
-namespace CheckOCR {
-    
-    class CheckImage {
+namespace CheckOCR
+{
+    class CheckImage
+    {
     private:
         Pix *_pix;
         
@@ -26,7 +27,6 @@ namespace CheckOCR {
         
         Pix* getPix();
     };
-    
 }
 
 #endif /* defined(__CheckOCR__CheckImage__) */

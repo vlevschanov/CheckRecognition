@@ -19,10 +19,18 @@ namespace CheckOCR {
     
     class CheckImage;
     class CheckResult;
+    class CheckResultComponent;
     
-    class CheckAPI {
+    typedef void (CheckResultComponentCallback)(void *src, CheckResultComponent *component, int compNumber, int compTotal);
+    
+    class CheckAPI
+    {
     private:
         tesseract::TessBaseAPI *_tessAPI;
+        
+        bool _isRecognizing;
+        CheckResultComponentCallback *_perComponentCallback;
+        void *_callbackContext;
     
     public:
         CheckAPI();
@@ -33,7 +41,7 @@ namespace CheckOCR {
         void SetImage(CheckImage *image);
         
         CheckResult* Recognize(ComponentType type = CT_BLOCK);
-        CheckResult* Recognize(CheckImage *image, ComponentType type = CT_BLOCK);
+        CheckResult* Recognize(CheckResultComponentCallback *perComponentCallback, void *callbackContext, ComponentType type = CT_BLOCK);
     };
 }
 

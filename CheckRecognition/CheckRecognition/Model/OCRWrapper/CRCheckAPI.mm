@@ -21,7 +21,7 @@ static NSString * const kCRDataPath = @"tessdata";
 
 @property (nonatomic) NSOperationQueue *recognitionQueue;
 @property (nonatomic) CRRecognitionOperation *currentOperation;
-@property (nonatomic, copy) OCRRecognitionCallback callback;
+@property (nonatomic, copy) CRRecognitionCallback callback;
 
 @end
 
@@ -64,11 +64,12 @@ static NSString * const kCRDataPath = @"tessdata";
     }
 }
 
-- (void)recognizeImage:(UIImage *)image withCallback:(OCRRecognitionCallback)callback {
+- (void)recognizeImage:(UIImage *)image withCallback:(CRRecognitionCallback)callback progressCallback:(CRRecognitionProgressCallback)progressCallback {
     NSParameterAssert(image && callback);
     self.callback = callback;
     
     self.currentOperation = [[CRRecognitionOperation alloc] initWithImage:image dataPath:kCRDataPath andLanguage:@"eng+ukr+rus"];
+    self.currentOperation.progressCallback = progressCallback;
     [self.recognitionQueue addOperation:self.currentOperation];
 }
 

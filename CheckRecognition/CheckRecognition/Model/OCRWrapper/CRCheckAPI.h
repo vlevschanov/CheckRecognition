@@ -9,15 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class CheckResult;
-
-typedef void (^OCRRecognitionCallback)(CheckResult *result);
+#import "CRCheckAPICommon.h"
 
 @interface CRCheckAPI : NSObject
 
 + (instancetype)sharedAPI;
 
-- (void)recognizeImage:(UIImage *)image withCallback:(OCRRecognitionCallback)callback;
+- (void)recognizeImage:(UIImage *)image withCallback:(CRRecognitionCallback)callback progressCallback:(CRRecognitionProgressCallback)progressCallback;
 - (void)cancelCurrentRecognition;
 
 @end

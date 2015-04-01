@@ -10,10 +10,12 @@
 #include "baseapi.h"
 #include "allheaders.h"
 
-namespace CheckOCR {    
-    
-    static inline ComponentRect CreateComponentRect(int x, int y, int width, int height) {
-        ComponentRect rect = {
+namespace CheckOCR
+{
+    static inline ComponentRect CreateComponentRect(int x, int y, int width, int height)
+    {
+        ComponentRect rect =
+        {
             .x = x,
             .y = y,
             .width = width,
@@ -22,32 +24,35 @@ namespace CheckOCR {
         return rect;
     }
     
-    CheckResultComponent::CheckResultComponent() {}
+    CheckResultComponent::CheckResultComponent() { }
         
-    CheckResultComponent::CheckResultComponent(ComponentType type, const Box *box, int conf, const char* text) {
+    CheckResultComponent::CheckResultComponent(ComponentType type, const Box *box, int conf, const char* text)
+    {
         _type = type;
         _rect = CreateComponentRect(box->x, box->y, box->w, box->h);
         _confidence = conf;
         _text = std::string(text);
     }
     
-    CheckResultComponent::~CheckResultComponent() {
-        
-    }
+    CheckResultComponent::~CheckResultComponent() { }
     
-    ComponentRect CheckResultComponent::GetRect() {
+    ComponentRect CheckResultComponent::GetRect()
+    {
         return _rect;
     }
     
-    ComponentType CheckResultComponent::GetType() {
+    ComponentType CheckResultComponent::GetType()
+    {
         return _type;
     }
     
-    int CheckResultComponent::GetConfidence() {
+    int CheckResultComponent::GetConfidence()
+    {
         return _confidence;
     }
     
-    std::string CheckResultComponent::GetText() {
+    std::string CheckResultComponent::GetText()
+    {
         return _text;
     }
 }

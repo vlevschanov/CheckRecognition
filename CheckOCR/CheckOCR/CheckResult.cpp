@@ -11,26 +11,40 @@
 
 namespace CheckOCR {
     
-    CheckResult::CheckResult(int status) : _status(status) {};
+    CheckResult::CheckResult(CheckResultStatus status, int errorCode) : _status(status), _errorCode(errorCode)
+    {
+    };
     
-    CheckResult::CheckResult(int status, ComponentType componentsType, const std::vector<CheckResultComponent> components) :
-    _status(status), _componentsType(componentsType), _components(components) {};
+    CheckResult::CheckResult(ComponentType componentsType, const std::vector<CheckResultComponent> components) :
+    _status(CHECK_OCR_SUCCESS), _componentsType(componentsType), _components(components)
+    {
+    };
     
     CheckResult::~CheckResult() { }
     
-    int CheckResult::GetStatus() {
+    CheckResultStatus CheckResult::GetStatus()
+    {
         return _status;
     }
-    ComponentType CheckResult::getComponentsType() {
+    
+    int CheckResult::GetErrorCode()
+    {
+        return _errorCode;
+    }
+    
+    ComponentType CheckResult::GetComponentsType()
+    {
         return _componentsType;
     }
     
-    const std::vector<CheckResultComponent> CheckResult::GetComponents() {
+    const std::vector<CheckResultComponent> CheckResult::GetComponents()
+    {
         return _components;
     }
     
-    bool CheckResult::IsSuccess() {
-        return _status == 0;
+    bool CheckResult::IsSuccess()
+    {
+        return _status == CHECK_OCR_SUCCESS && _errorCode == 0;
     }
     
 }

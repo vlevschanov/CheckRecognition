@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
-@class CheckResult;
+#import "CRCheckAPICommon.h"
 
 @interface CRRecognitionOperation : NSOperation
 
 @property (nonatomic, readonly) CheckResult *result;
+@property (nonatomic, copy) CRRecognitionProgressCallback progressCallback;
 
 - (instancetype)initWithImage:(UIImage *)image dataPath:(NSString *)dataPath andLanguage:(NSString *)language;
 

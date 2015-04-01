@@ -12,8 +12,17 @@ class ResultViewController: BaseViewController {
     
     @IBOutlet weak var imageView: ImageFormattingView!
     
-    var image : UIImage?
     var resultController : CheckResultController?
+    var hudView : MBProgressHUD?
+    
+    var image : UIImage? {
+        didSet {
+            if let img = image {
+                self.resultController = CheckResultController(image: img, delegate: self)
+            }
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,48 +38,47 @@ class ResultViewController: BaseViewController {
     }
     
     @IBAction func didTappedScanButton(sender: UIBarButtonItem) {
-        let progress = MBProgressHUD.showHUDAddedTo(self.view.window, animated: true)
-        progress.labelText = "Scanning..."
-        progress.detailsLabelText = "Please wait"
-        CRCheckAPI.sharedAPI().recognizeImage(self.image!, withCallback: { [weak self] (result: CheckResult!) -> Void in
+        hudView = MBProgressHUD.showHUDAddedTo(self.view.window, animated: true)
+        hudView?.labelText = "Scanning..."
+        hudView?.detailsLabelText = "Please wait"
+        
+        resultController?.startImageProcessing({ [weak self] () -> Void in
             if let strong = self {
-                if result.components.count > 0 {
-                    strong.handleResult(result)
-                }
-                progress.hide(true)
+                strong.hudView?.hide(true)
             }
         })
     }
+}
+
+extension ResultViewController : CheckResultControllerDelegate {
     
-    private func handleResult(result: CheckResult) {
-        self.resultController = CheckResultController(checkResult: result)
-        let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: result)
-        resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
-            if let strong = self {
-                strong.imageView.image = image
-            }
-        }
+    func didGeneratedCheckResultImage(resultController : CheckResultController, image: UIImage) {
+        imageView.image = image;
+    }
+    
+    func didUpdateRecognitionProgress(resultController: CheckResultController, currentProgress: Float) {
+        hudView?.detailsLabelText = String(format: "%.0f %%", currentProgress * 100)
     }
 }
 
 extension ResultViewController : ImageFormattingViewDelegate {
     
     func formattingViewDidTapImage(view: ImageFormattingView, point: CGPoint) {
-        if self.resultController!.moveToComponent(point) {
-            self.resultController!.changeCurrentComponentSelection()
-            let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: self.resultController!.checkResult)
-            resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
-                if let strong = self {
-                    strong.imageView.image = image
-                    if let sum = strong.resultController?.getSumOfSelectedComponents() {
-                        strong.navigationItem.title! = sum.stringValue
-                    }
-                    else {
-                        strong.navigationItem.title! = ""
-                    }
-                    
-                }
-            }
-        }
+//        if self.resultController!.moveToComponent(point) {
+//            self.resultController!.changeCurrentComponentSelection()
+//            let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: self.resultController!.checkResult)
+//            resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
+//                if let strong = self {
+//                    strong.imageView.image = image
+//                    if let sum = strong.resultController?.getSumOfSelectedComponents() {
+//                        strong.navigationItem.title! = sum.stringValue
+//                    }
+//                    else {
+//                        strong.navigationItem.title! = ""
+//                    }
+//                    
+//                }
+//            }
+//        }
     }
 }

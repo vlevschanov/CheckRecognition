@@ -17,24 +17,27 @@
 
 #include "CheckHelper.h"
 
-namespace CheckOCR {
-    
-    CheckImage::CheckImage(const uint8_t *imageData, int width, int height, int bytes_per_pixel, int bytes_per_line) {
-        
+namespace CheckOCR
+{
+    CheckImage::CheckImage(const uint8_t *imageData, int width, int height, int bytes_per_pixel, int bytes_per_line)
+    {
         tesseract::ImageThresholder thresholder = tesseract::ImageThresholder();
         thresholder.SetImage(imageData, width, height, bytes_per_pixel, bytes_per_line);
         
         _pix = thresholder.GetPixRect();
     }
     
-    CheckImage::~CheckImage() {
-        if(_pix != nullptr) {
+    CheckImage::~CheckImage()
+    {
+        if(_pix != nullptr)
+        {
             pixDestroy(&_pix);
             _pix = nullptr;
         }
     }
     
-    Pix* CheckImage::getPix() {
+    Pix* CheckImage::getPix()
+    {
         return _pix;
     }
     

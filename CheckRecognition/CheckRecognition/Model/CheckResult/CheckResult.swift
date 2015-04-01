@@ -17,3 +17,20 @@ class CheckResult: NSObject {
         super.init()
     }
 }
+
+class MutableCheckResult: NSObject {
+    var components: [CheckResultComponent]
+    
+    override init() {
+        components = [CheckResultComponent]()
+        super.init()
+    }
+    
+    func addComponent(component: CheckResultComponent) {
+        components.append(component)
+    }
+    
+    func result() -> CheckResult {
+        return CheckResult(components: components)
+    }
+}

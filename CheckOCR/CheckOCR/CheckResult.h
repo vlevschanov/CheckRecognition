@@ -15,22 +15,31 @@
 #include "CheckResultComponentType.h"
 
 namespace CheckOCR {
-    
     class CheckResultComponent;
     
-    class CheckResult {
+    enum CheckResultStatus : int {
+        CHECK_OCR_SUCCESS = 0,
+        CHECK_OCR_TESSERACT_ERROR,
+        CHECK_OCR_ERROR
+    };
+    
+    class CheckResult
+    {
     private:
-        int _status;
         ComponentType _componentsType;
+        CheckResultStatus _status;
+        int _errorCode;
+        
         std::vector<CheckResultComponent> _components;
         
     public:
-        CheckResult(int status);
-        CheckResult(int status, ComponentType componentsType, const std::vector<CheckResultComponent> components);
+        CheckResult(CheckResultStatus status, int errorCode);
+        CheckResult(ComponentType componentsType, const std::vector<CheckResultComponent> components);
         ~CheckResult();
         
-        int GetStatus();
-        ComponentType getComponentsType();
+        ComponentType GetComponentsType();
+        CheckResultStatus GetStatus();
+        int GetErrorCode();
         const std::vector<CheckResultComponent> GetComponents();
         
         bool IsSuccess();

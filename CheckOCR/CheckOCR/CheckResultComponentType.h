@@ -9,9 +9,10 @@
 #ifndef CheckOCR_CheckResultComponentType_h
 #define CheckOCR_CheckResultComponentType_h
 
-namespace CheckOCR {
-    
-    enum ComponentType : unsigned int {
+namespace CheckOCR
+{
+    enum ComponentType : unsigned int
+    {
         CT_BLOCK,     // Block of text/image/separator line.
         CT_PARAGRAPH, // Paragraph within a block.
         CT_TEXTLINE,  // Line within a paragraph.

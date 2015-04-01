@@ -16,16 +16,18 @@
 
 struct Box;
 
-namespace CheckOCR {
-    
-    struct ComponentRect {
+namespace CheckOCR
+{
+    struct ComponentRect
+    {
         int x;
         int y;
         int width;
         int height;
     };
     
-    class CheckResultComponent {
+    class CheckResultComponent
+    {
     private:
         ComponentType _type;
         ComponentRect _rect;
