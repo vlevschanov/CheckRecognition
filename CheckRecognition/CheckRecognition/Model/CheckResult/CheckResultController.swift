@@ -10,7 +10,8 @@ import UIKit
 
 protocol CheckResultControllerDelegate {
     func didGeneratedCheckResultImage(resultController : CheckResultController, image: UIImage)
-    func didUpdateRecognitionProgress(resultController : CheckResultController, currentProgress: Float);
+    func didUpdateRecognitionProgress(resultController : CheckResultController, currentProgress: Float)
+    func didChangedSumValue(resultController: CheckResultController, sum: NSNumber)
 }
 
 class CheckResultController: NSObject {
@@ -61,6 +62,18 @@ class CheckResultController: NSObject {
     }
     
     // MARK: - Components interaction
+    
+    func trySelectComponentInLocation(location: CGPoint) {
+        if self.moveToComponent(location) {
+            self.currentComponent!.selected = !self.currentComponent!.selected
+        
+            self.generateResultImage(self.checkResult!)
+            
+            let sum = self.getSumOfSelectedComponents()
+            self.delegate.didChangedSumValue(self, sum: sum)
+        }
+
+    }
     
     func moveToComponent(location: CGPoint) -> Bool {
         for component in self.checkResult!.components {

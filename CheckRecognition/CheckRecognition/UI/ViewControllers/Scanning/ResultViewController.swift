@@ -23,7 +23,6 @@ class ResultViewController: BaseViewController {
         }
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -59,26 +58,15 @@ extension ResultViewController : CheckResultControllerDelegate {
     func didUpdateRecognitionProgress(resultController: CheckResultController, currentProgress: Float) {
         hudView?.detailsLabelText = String(format: "%.0f %%", currentProgress * 100)
     }
+    
+    func didChangedSumValue(resultController: CheckResultController, sum: NSNumber) {
+        self.navigationItem.title! = sum.stringValue
+    }
 }
 
 extension ResultViewController : ImageFormattingViewDelegate {
     
     func formattingViewDidTapImage(view: ImageFormattingView, point: CGPoint) {
-//        if self.resultController!.moveToComponent(point) {
-//            self.resultController!.changeCurrentComponentSelection()
-//            let resultProcessor = CheckResultImageProcessor(image: self.image!, ocrResult: self.resultController!.checkResult)
-//            resultProcessor.generateCheckResultImage { [weak self] (image) -> Void in
-//                if let strong = self {
-//                    strong.imageView.image = image
-//                    if let sum = strong.resultController?.getSumOfSelectedComponents() {
-//                        strong.navigationItem.title! = sum.stringValue
-//                    }
-//                    else {
-//                        strong.navigationItem.title! = ""
-//                    }
-//                    
-//                }
-//            }
-//        }
+        self.resultController?.trySelectComponentInLocation(point)
     }
 }
